@@ -3,16 +3,118 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Role Garden WebUI - English</title>
+  <title>Role Garden WebUI - English Manual</title>
   <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
-  <main class="page">
-    <header class="hero compact">
-      <p class="eyebrow">English</p>
-      <h1>Role Garden WebUI</h1>
-      <p class="lead">English documentation will be added here.</p>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="../"><span class="brand-mark">R</span><span>Role Garden WebUI</span></a>
+        <div class="top-actions">
+          <select class="language-select" data-language-select aria-label="Language">
+            <option value="../ja/">日本語</option>
+            <option value="../en/" selected>English</option>
+            <option value="../ko/">한국어</option>
+            <option value="../zh-cn/">简体中文</option>
+            <option value="../zh-tw/">繁體中文</option>
+          </select>
+        </div>
+      </div>
     </header>
-  </main>
+
+    <main class="page">
+      <section class="hero compact">
+        <p class="eyebrow">English Manual</p>
+        <h1>Role Garden WebUI</h1>
+        <p class="lead">A Windows local WebUI for character creation, timeline roleplay, replies, and direct messages using Ollama and local LLMs.</p>
+        <div class="badge-row"><span class="badge">Windows 64-bit</span><span class="badge">Ollama</span><span class="badge">Local data</span><span class="badge">Mobile LAN access</span></div>
+      </section>
+
+      <div class="layout">
+        <aside class="toc" aria-label="Contents">
+          <div class="toc-title">Contents</div>
+          <a href="#start">Overview</a>
+          <a href="#install">Installation</a>
+          <a href="#basic">Basic use</a>
+          <a href="#phone">Mobile access</a>
+          <a href="#trouble">Troubleshooting</a>
+          <a href="#terms">Terms</a>
+          <a href="#licenses">Third-party notices</a>
+          <a href="#updates">Updates</a>
+        </aside>
+
+        <div class="content">
+          <section class="section" id="start">
+            <h2>Overview</h2>
+            <p>Role Garden WebUI is a local creative tool for playing with characters in a social-network-like interface. You create your own account-like character, create worlds and partner characters, then interact through timelines, replies, DMs, and roleplay-style text.</p>
+            <div class="feature-grid">
+              <div class="card"><h3>Main features</h3><ul><li>World, player character, and partner character setup</li><li>Timeline posts, replies, and direct messages</li><li>Roleplay-friendly replies with actions and scene description</li><li>Writing-style analysis from sample text</li><li>Themes, color palettes, and mobile layout</li></ul></div>
+              <div class="card"><h3>Before you start</h3><ul><li>Designed for Windows 64-bit.</li><li>Ollama and LLM models are not bundled.</li><li>Initial setup and model downloads require internet access.</li><li>After models are downloaded, normal generation runs on your PC through local LLMs.</li></ul></div>
+            </div>
+            <p class="warning">LAN sharing is intended for trusted home networks. Do not expose the WebUI directly to the internet.</p>
+          </section>
+
+          <section class="section" id="install">
+            <h2>Installation</h2>
+            <p>If you are unsure where to begin, start with the low-spec setup. Large models may make your PC slow, take a long time to respond, or freeze on some systems.</p>
+            <ol class="steps"><li>Extract the distributed zip file.</li><li>For a lightweight first test, run <code>install_low_spec.bat</code>.</li><li>For a menu-based setup, run <code>install_role_garden_webui.bat</code>.</li><li>After installation, open <code>Role Garden WebUI Launcher.exe</code>.</li><li>The launcher starts the local server and opens the WebUI in your browser.</li></ol>
+            <div class="table"><table><thead><tr><th>Menu</th><th>Purpose</th></tr></thead><tbody><tr><td><code>low</code></td><td>Lightweight setup for first-time testing.</td></tr><tr><td><code>mid</code></td><td>Balanced setup with medium-size models.</td></tr><tr><td><code>high</code></td><td>For high-end PCs with enough storage, RAM, and VRAM.</td></tr><tr><td><code>env</code></td><td>Prepares Python, the dedicated WebUI environment, and Ollama only. No model is downloaded.</td></tr></tbody></table></div>
+          </section>
+
+          <section class="section" id="basic">
+            <h2>Basic use</h2>
+            <div class="grid">
+              <div class="card"><h3>First setup</h3><ol><li>Create a world.</li><li>Create your own character.</li><li>Create partner characters.</li></ol></div>
+              <div class="card"><h3>Worlds</h3><p>A world defines the setting and atmosphere: fantasy, modern school, near future, TRPG-like scenarios, or anything you want to play in.</p></div>
+              <div class="card"><h3>Your character</h3><p>Your character works like your account in the social UI. You can set names, profile text, icons, and header images.</p></div>
+              <div class="card"><h3>Partner characters</h3><p>Partner characters participate in timeline posts, replies, and DMs. Profiles, tone, likes, and relationship notes help guide generation.</p></div>
+              <div class="card"><h3>Timeline</h3><p>Press <code>Generate TL</code> to add a post from one of the partner characters. Auto TL can post at intervals.</p></div>
+              <div class="card"><h3>DM and roleplay</h3><p>DMs are one-on-one conversations. Text can include dialogue, movement, expressions, distance, gaze, and scene descriptions.</p></div>
+              <div class="card"><h3>Analysis</h3><p>The analysis tab can analyze writing samples and help shape a character's speech style or role text.</p></div>
+              <div class="card"><h3>Appearance</h3><p>You can switch between flat and neumorphism styles, themes, color palettes, and UI languages.</p></div>
+            </div>
+          </section>
+
+          <section class="section" id="phone">
+            <h2>Mobile access and LAN sharing</h2>
+            <p>By default, Role Garden WebUI is available only on the PC that runs it. To use it from a phone or tablet on the same Wi-Fi, enable LAN sharing in settings and restart the server.</p>
+            <div class="table"><table><thead><tr><th>Mode</th><th>Description</th></tr></thead><tbody><tr><td>PC only</td><td>Safest mode. Only the host PC can access the WebUI.</td></tr><tr><td>Public with PIN</td><td>Devices on the same LAN can connect after entering the PIN shown in the launcher.</td></tr><tr><td>Public without PIN</td><td>Devices on the same LAN can connect without a PIN. Use only on trusted home networks.</td></tr></tbody></table></div>
+            <p class="warning">The mobile URL uses <code>http://</code>, so traffic is not encrypted. Do not use it on public or untrusted Wi-Fi. A connected device has full management access, including settings and deletion actions.</p>
+          </section>
+
+          <section class="section" id="trouble">
+            <h2>Troubleshooting</h2>
+            <div class="grid">
+              <div class="card"><h3>Cannot start</h3><ul><li>Extract the zip before running files.</li><li>Run <code>Role Garden WebUI Launcher.exe</code> or the startup bat file.</li><li>Check whether security software blocked Python, bat, or exe files.</li></ul></div>
+              <div class="card"><h3>Ollama</h3><ul><li>Install Ollama from the official site if needed.</li><li>Existing Ollama installations are reused when possible.</li><li>Model downloads require time and storage.</li></ul></div>
+              <div class="card"><h3>Slow generation</h3><ul><li>You may be using a model that is too heavy for your PC.</li><li>Test with a lightweight model first.</li><li>Speed depends on RAM, VRAM, GPU, CPU, model, and Ollama state.</li></ul></div>
+              <div class="card"><h3>Phone cannot connect</h3><ul><li>Check that PC and phone are on the same Wi-Fi.</li><li>Allow Python or port 7880 through Windows Firewall.</li><li>Check router client isolation, VPNs, and virtual networks.</li></ul></div>
+            </div>
+            <p>Typical data folder: <code>Documents\RoleGardenWebUI\</code>. Back it up before updates, reinstalling, uninstalling, resetting data, or manual edits.</p>
+          </section>
+
+          <section class="section" id="terms">
+            <h2>Terms of Use</h2>
+            <p><strong>Established:</strong> 2026-06-21 / <strong>Last updated:</strong> 2026-06-30 / <strong>Version:</strong> v1.0</p>
+            <p class="note">This is a reference translation. The Japanese Terms of Use included with the distributed files are the official text.</p>
+            <div class="terms">
+              <article><h3>Allowed use</h3><p>Purchasers may install and use the software on devices they personally manage and control, including multiple PCs they normally manage. Generated text, screenshots, and user-created settings may be used for personal, public, streaming, doujin, commercial, and non-commercial creative activities.</p></article>
+              <article><h3>Prohibited acts</h3><p>Do not redistribute, mirror, sell, rent, or share the software, its modified versions, executable files, source code, bundled assets, protected elements, or extracted internal materials. Reverse engineering, decompiling, disassembling, and similar analysis are prohibited except where permitted by law or explicitly allowed for user-editable data.</p></article>
+              <article><h3>User-editable data</h3><p>You may edit character settings, worlds, profiles, notes, saved/generated data, app settings, translation data, and color palette data for your own use. Translation data and color palette data may also be modified, copied, imported into the software, redistributed, translated, and adapted as add-on data, as long as they do not include the main software or protected materials.</p></article>
+              <article><h3>Generated content</h3><p>The author does not claim authorship over text or screenshots generated by purchasers. Users are responsible for checking third-party rights, platform rules, model licenses, and laws before publishing or commercial use.</p></article>
+              <article><h3>LAN sharing</h3><p>LAN sharing is for trusted home networks only. Do not expose the WebUI directly to the internet through port forwarding, public VPN exposure, reverse proxies, tunnels, or similar methods.</p></article>
+              <article><h3>Disclaimer and support</h3><p>The software is provided as is. Continuous updates, compatibility with every environment, generation quality, data retention, and individual customization support are not guaranteed. Contact is handled through BOOTH messages.</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="licenses"><h2>Third-party notices</h2><ul><li>Tabler Icons: MIT License</li><li>Twemoji code: MIT License</li><li>Twemoji graphics: Creative Commons Attribution 4.0 International</li></ul><p>See <code>THIRD_PARTY_NOTICES.md</code> and bundled license files for details.</p></section>
+          <section class="section" id="updates"><h2>Updates</h2><div class="card"><h3>2026-06-21</h3><p>Terms of Use v1.0 established.</p></div></section>
+          <footer class="footer"><p>Role Garden WebUI Support / Public manual</p></footer>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/site.js"></script>
 </body>
 </html>

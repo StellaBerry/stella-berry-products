@@ -7,45 +7,62 @@
   <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-  <main class="page">
-    <header class="hero">
-      <p class="eyebrow">Role Garden WebUI</p>
-      <h1>Role Garden WebUI サポート</h1>
-      <p class="lead">ローカルLLM/Ollamaを使って、キャラクターとのタイムライン、DM、リプライ、ロールプレイを楽しむためのWindows向けWebUIです。</p>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="../"><span class="brand-mark">R</span><span>Role Garden WebUI</span></a>
+        <div class="top-actions">
+          <select class="language-select" data-language-select aria-label="Language">
+            <option value="./ja/" selected>日本語</option>
+            <option value="./en/">English</option>
+            <option value="./ko/">한국어</option>
+            <option value="./zh-cn/">简体中文</option>
+            <option value="./zh-tw/">繁體中文</option>
+          </select>
+        </div>
+      </div>
     </header>
 
-    <section class="section">
-      <h2>言語</h2>
-      <ul class="language-list" aria-label="Language">
-        <li><a href="./ja/">日本語</a></li>
-        <li><a href="./en/">English</a></li>
-        <li><a href="./ko/">한국어</a></li>
-        <li><a href="./zh-cn/">简体中文</a></li>
-        <li><a href="./zh-tw/">繁體中文</a></li>
-      </ul>
-    </section>
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Role Garden WebUI</p>
+          <h1>Role Garden WebUI サポート</h1>
+          <p class="lead">ローカルLLM/Ollamaを使って、キャラクターとのタイムライン、DM、リプライ、ロールプレイを楽しむためのWindows向けWebUIです。</p>
+          <div class="badge-row">
+            <span class="badge">Windows 64bit</span>
+            <span class="badge">Ollama</span>
+            <span class="badge">Local LLM</span>
+            <span class="badge">スマホ接続</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>読む場所を選ぶ</h2>
+          <ul class="language-list" aria-label="Language">
+            <li><a href="./ja/">日本語</a></li>
+            <li><a href="./en/">English</a></li>
+            <li><a href="./ko/">한국어</a></li>
+            <li><a href="./zh-cn/">简体中文</a></li>
+            <li><a href="./zh-tw/">繁體中文</a></li>
+          </ul>
+        </div>
+      </section>
 
-    <section class="section">
-      <h2>ドキュメント</h2>
-      <div class="grid">
-        <a class="link-card" href="./ja/">
-          <span class="link-title">はじめに</span>
-          <span class="link-copy">導入前に確認する概要と基本方針。</span>
-        </a>
-        <a class="link-card" href="./ja/#install">
-          <span class="link-title">インストール</span>
-          <span class="link-copy">zip展開、初回起動、低スペック向け導入。</span>
-        </a>
-        <a class="link-card" href="./ja/#terms">
-          <span class="link-title">利用規約</span>
-          <span class="link-copy">利用条件、禁止事項、改変、変更履歴。</span>
-        </a>
-      </div>
-    </section>
+      <section class="section">
+        <h2>主な内容</h2>
+        <div class="grid">
+          <a class="link-card" href="./ja/#start"><span class="link-title">はじめに</span><span class="link-copy">何ができるか、必要な環境、購入前の注意。</span></a>
+          <a class="link-card" href="./ja/#install"><span class="link-title">インストール</span><span class="link-copy">zip展開、batの選び方、起動方法。</span></a>
+          <a class="link-card" href="./ja/#phone"><span class="link-title">スマホ接続</span><span class="link-copy">LAN公開、PIN、QRコード、注意点。</span></a>
+          <a class="link-card" href="./ja/#terms"><span class="link-title">利用規約</span><span class="link-copy">利用条件、禁止事項、生成物、変更履歴。</span></a>
+        </div>
+      </section>
 
-    <section class="section">
-      <p class="note">このGitHub Pages版は公開用マニュアル置き場です。正式な配布物や追加情報への導線は、BOOTHおよび公式告知を確認してください。</p>
-    </section>
-  </main>
+      <section class="section">
+        <p class="warning">このGitHub Pages版は公開用マニュアル置き場です。正式な配布物や追加情報への導線は、BOOTHおよび公式告知も確認してください。</p>
+      </section>
+    </main>
+  </div>
+  <script src="../assets/site.js"></script>
 </body>
 </html>

@@ -3,26 +3,178 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Role Garden WebUI - 日本語</title>
+  <title>Role Garden WebUI - 日本語マニュアル</title>
   <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
-  <main class="page">
-    <header class="hero compact">
-      <p class="eyebrow">日本語</p>
-      <h1>Role Garden WebUI</h1>
-      <p class="lead">日本語版マニュアルの入口です。詳細ページは順次追加します。</p>
+  <div class="site-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="../"><span class="brand-mark">R</span><span>Role Garden WebUI</span></a>
+        <div class="top-actions">
+          <select class="language-select" data-language-select aria-label="Language">
+            <option value="../ja/" selected>日本語</option>
+            <option value="../en/">English</option>
+            <option value="../ko/">한국어</option>
+            <option value="../zh-cn/">简体中文</option>
+            <option value="../zh-tw/">繁體中文</option>
+          </select>
+        </div>
+      </div>
     </header>
 
-    <section class="section" id="install">
-      <h2>インストール</h2>
-      <p>導入手順は今後このページに整理します。</p>
-    </section>
+    <main class="page">
+      <section class="hero compact">
+        <p class="eyebrow">日本語マニュアル</p>
+        <h1>Role Garden WebUI</h1>
+        <p class="lead">ローカルLLM/Ollamaでキャラクター創作、SNS風ロールプレイ、DM、タイムラインを楽しむためのWindows向けWebUIです。</p>
+        <div class="badge-row">
+          <span class="badge">Windows 64bit</span>
+          <span class="badge">Ollama対応</span>
+          <span class="badge">ローカル保存</span>
+          <span class="badge">5言語UI</span>
+        </div>
+      </section>
 
-    <section class="section" id="terms">
-      <h2>利用規約</h2>
-      <p>利用規約と変更履歴は今後このページに整理します。</p>
-    </section>
-  </main>
+      <div class="layout">
+        <aside class="toc" aria-label="目次">
+          <div class="toc-title">Contents</div>
+          <a href="#start">はじめに</a>
+          <a href="#install">インストール</a>
+          <a href="#basic">基本操作</a>
+          <a href="#phone">スマホ接続</a>
+          <a href="#trouble">トラブル対応</a>
+          <a href="#terms">利用規約</a>
+          <a href="#licenses">第三者ライセンス</a>
+          <a href="#updates">更新情報</a>
+        </aside>
+
+        <div class="content">
+          <section class="section" id="start">
+            <h2>はじめに</h2>
+            <p>Role Garden WebUIは、キャラクター創作やロールプレイをSNS風の画面で遊ぶためのローカルWebUIです。自分側キャラクターをSNSアカウントのように作成し、そのキャラクターに紐づく相手キャラクターたちと、タイムラインやDMでやり取りできます。</p>
+            <div class="feature-grid">
+              <div class="card"><h3>できること</h3><ul><li>世界観、自キャラ、相手キャラの作成</li><li>SNS風タイムライン、リプライ、DM</li><li>ロールプレイ向け返信生成</li><li>文体・口調分析</li><li>テーマ、カラーパレット、スマホ表示</li></ul></div>
+              <div class="card"><h3>大事な前提</h3><ul><li>Windows 64bit向けです。</li><li>Ollama本体やLLMモデルは同梱していません。</li><li>初回セットアップとモデル取得にはインターネット接続が必要です。</li><li>モデル取得後の通常生成はPC内のローカルLLMで行われます。</li></ul></div>
+            </div>
+            <p class="warning">LAN公開は家庭内LAN向けです。インターネットへ直接公開しないでください。</p>
+          </section>
+
+          <section class="section" id="install">
+            <h2>インストール</h2>
+            <p>最初に迷った場合は、軽量構成から始めてください。重いモデルを無理に使うと、PCが非常に重くなったり、生成に時間がかかったり、環境によってはフリーズする場合があります。</p>
+            <ol class="steps">
+              <li>配布zipを展開します。</li>
+              <li>まず軽量構成で試す場合は <code>install_low_spec.bat</code> を実行します。</li>
+              <li>メニュー式で選びたい場合は <code>install_role_garden_webui.bat</code> を実行します。</li>
+              <li>インストール後、<code>Role Garden WebUI Launcher.exe</code> を開きます。</li>
+              <li>ランチャーが起動し、しばらくするとブラウザでWebUIが開きます。</li>
+            </ol>
+            <div class="table">
+              <table>
+                <thead><tr><th>メニュー</th><th>用途</th></tr></thead>
+                <tbody>
+                  <tr><td><code>low</code></td><td>まず動作確認したい方向けの軽量構成です。迷った場合はここから始めてください。</td></tr>
+                  <tr><td><code>mid</code></td><td>軽量構成に加えて中規模モデルを取得します。軽さと品質のバランスを試したい方向けです。</td></tr>
+                  <tr><td><code>high</code></td><td>高スペックPC向けです。容量、RAM、VRAMに余裕がある場合のみ選んでください。</td></tr>
+                  <tr><td><code>env</code></td><td>Python、WebUI専用環境、Ollamaだけを準備します。モデルは取得しません。</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <h3>インストールされるもの</h3>
+            <ul><li>Python 3.11 64bit、または既存のPython 3.10以上 64bit版</li><li>このフォルダ内のWebUI専用Python環境</li><li>Ollama</li><li>選択した構成に応じたローカルLLMモデル</li></ul>
+            <p>既に利用可能なPythonやOllama、取得済みモデルがある場合は、できるだけ既存のものを再利用します。</p>
+          </section>
+
+          <section class="section" id="basic">
+            <h2>基本操作</h2>
+            <div class="grid">
+              <div class="card"><h3>最初に作るもの</h3><ol><li>世界観を作る</li><li>自キャラを作る</li><li>相手キャラを作る</li></ol></div>
+              <div class="card"><h3>世界観</h3><p>自キャラがいる場所や空気を定義します。ファンタジー、現代、学園、近未来、TRPGシナリオ風など、遊びたい世界の雰囲気を書いてください。</p></div>
+              <div class="card"><h3>自キャラ</h3><p>自分が操作するSNSアカウントのようなものです。名前、表示名、プロフィール、アイコン、ヘッダー画像などを設定できます。</p></div>
+              <div class="card"><h3>相手キャラ</h3><p>TL投稿、リプライ、DM返信に参加するAIキャラクターです。プロフィール、口調、好きなもの、関係性メモなどを設定できます。</p></div>
+              <div class="card"><h3>タイムライン</h3><p><code>TLを生成</code> を押すと、相手キャラクターの誰かが投稿します。自動TLをONにすると一定間隔で投稿されます。</p></div>
+              <div class="card"><h3>DMとロールプレイ</h3><p>DMでは一対一で会話できます。セリフだけでなく、動き、表情、距離、視線、場面描写などを含む文章にも対応しています。</p></div>
+              <div class="card"><h3>分析</h3><p>分析タブでは、サンプル文から文体や口調の分析を行えます。キャラクターの話し方やロール内の書き方を整えるために使えます。</p></div>
+              <div class="card"><h3>見た目</h3><p>フラット/ニューモーフィズム表示、テーマ、カラーパレット、言語表示を切り替えられます。</p></div>
+            </div>
+          </section>
+
+          <section class="section" id="phone">
+            <h2>スマホ接続とLAN公開</h2>
+            <p>初期状態では、起動しているPCからだけ使えます。同じWi-Fi内のスマホやタブレットから使いたい場合は、設定でLAN公開を有効にし、サーバーを再起動してください。</p>
+            <div class="table">
+              <table>
+                <thead><tr><th>設定</th><th>説明</th></tr></thead>
+                <tbody>
+                  <tr><td>PCのみ</td><td>一番安全です。起動しているPCからだけ使えます。</td></tr>
+                  <tr><td>公開（PIN認証あり）</td><td>同じLAN内のスマホや別端末から接続できます。ランチャーに表示されたPINの入力が必要です。</td></tr>
+                  <tr><td>公開（PIN認証なし）</td><td>PIN入力なしで接続できます。自宅など信頼できるネットワーク内でだけ使ってください。</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ol class="steps">
+              <li>設定でLAN公開を選びます。</li>
+              <li>設定欄に再起動案内が出たら、サーバーを再起動します。</li>
+              <li>ランチャーのスマホ用URLまたはQRコードをスマホで開きます。</li>
+              <li>PIN認証ありの場合は、ランチャーに表示されたPINを入力します。</li>
+            </ol>
+            <p class="warning">スマホ用URLは <code>http://</code> で動作するため通信内容は暗号化されません。共有Wi-Fiや信用できないLANでは使わず、自宅など信頼できるネットワーク内だけで使ってください。</p>
+          </section>
+
+          <section class="section" id="trouble">
+            <h2>トラブル対応</h2>
+            <div class="grid">
+              <div class="card"><h3>起動しない</h3><ul><li>zipを展開してから実行してください。</li><li><code>Role Garden WebUI Launcher.exe</code> または起動batを実行してください。</li><li>セキュリティソフトがPython、bat、exeを止めていないか確認してください。</li></ul></div>
+              <div class="card"><h3>Ollama関連</h3><ul><li>Ollamaが未導入の場合は公式サイトから導入してください。</li><li>既存Ollamaがある場合は再利用します。</li><li>モデル取得には時間とストレージ容量が必要です。</li></ul></div>
+              <div class="card"><h3>生成が遅い</h3><ul><li>重いモデルを選んでいる可能性があります。</li><li>まず軽量モデルで動作確認してください。</li><li>速度はPC性能、モデル、Ollamaの状態に左右されます。</li></ul></div>
+              <div class="card"><h3>スマホから開けない</h3><ul><li>PCとスマホが同じWi-Fiか確認してください。</li><li>WindowsファイアウォールでPythonまたはポート7880が許可されているか確認してください。</li><li>ルーターの端末分離、VPN、仮想ネットワークの影響も確認してください。</li></ul></div>
+            </div>
+            <h3>バックアップ</h3>
+            <p>通常のデータ保存先は <code>Documents\RoleGardenWebUI\</code> です。アップデート、再インストール、アンインストール、データ初期化、手動編集の前には必要に応じてバックアップしてください。</p>
+          </section>
+
+          <section class="section" id="terms">
+            <h2>利用規約</h2>
+            <p><strong>制定日:</strong> 2026-06-21 / <strong>最終更新日:</strong> 2026-06-30 / <strong>規約バージョン:</strong> v1.0</p>
+            <p class="note">このページは、配布ファイルに同梱される <code>TERMS_OF_USE.md</code> と同じ内容をWeb掲載向けに整理したものです。</p>
+            <div class="terms">
+              <article><h3>変更履歴</h3><p>2026-06-21 / v1.0: 初版を制定しました。</p></article>
+              <article><h3>1. 基本方針</h3><p>本ソフトは、ローカルLLMを使って、キャラクターとの会話、タイムライン投稿、ロールプレイ、創作メモ、スクリーンショット作成などを楽しむための創作支援ツールです。購入者自身の創作活動にはできるだけ自由に使える方針ですが、本ソフトの配布ファイルそのものを無断で配ること、転載すること、販売することは禁止します。</p></article>
+              <article><h3>2. 利用できること</h3><p>購入者は、購入者本人が管理し、購入者の制御が及ぶ範囲の端末で本ソフトをインストールし利用できます。購入者本人が通常管理する複数PCでの利用は可能です。生成テキスト、スクリーンショット、自分で入力・編集した設定やメモは、個人利用、公開、投稿、配信、同人活動、商用・非商用の創作活動に利用できます。</p></article>
+              <article><h3>3. 禁止事項</h3><p>本ソフトのzip、フォルダ、実行ファイル、ソースコード、同梱素材、改変版を第三者へ再配布すること、転載・ミラー配布、無許可販売、未購入者が継続利用できる共有、内部素材の抜き出し配布、リバースエンジニアリング、ライセンス表示の削除、法令やサービス規約に違反する利用、インターネットへの直接公開を禁止します。</p></article>
+              <article><h3>4. 改変について</h3><p>購入者は、自分自身の利用のために、本ソフトがユーザー編集用として指定するデータや設定を編集できます。これにはキャラクター設定、世界観、プロフィール、メモ、生成・保存されたデータ、アプリ内設定、翻訳データ、カラーパレットデータなどが含まれます。例外として、翻訳データおよびカラーパレットデータは、追加データ単体として変更、複製、本ソフトへの導入、再配布、翻訳、翻案を許可します。ただしRole Garden WebUI本体、実行ファイル、ソースコード、内部プロンプト、同梱UI素材、画像素材、第三者ライセンス表示、著作権表示、その他本体構成要素を含めて配布することはできません。</p></article>
+              <article><h3>5. 生成物の権利と責任</h3><p>作者は、購入者が本ソフトを使って生成した文章やスクリーンショットについて、作者としての権利を主張しません。ただし生成物の利用は購入者自身の責任で判断してください。</p></article>
+              <article><h3>6. ローカルLLM、Ollama、モデルについて</h3><p>本ソフトはOllamaおよびOllama上のLLMモデルを利用します。本ソフト本体にはOllama本体やLLMモデルを同梱していません。Ollamaおよび各モデルには、それぞれ別のライセンス、利用規約、禁止用途、免責事項が適用されます。</p></article>
+              <article><h3>7. LAN公開とPIN認証について</h3><p>LAN公開は、自宅など信頼できるネットワーク内で使うための機能です。インターネットに直接公開する用途ではありません。通信はHTTPであり内容は暗号化されません。PIN認証後の端末は管理用アクセスになります。</p></article>
+              <article><h3>8. データ保存とバックアップ</h3><p>キャラクター、世界観、DM、TL、画像、ログなどのデータは購入者のPC内に保存されます。データの破損、削除、上書き、移行失敗、PC故障などに備え、必要なデータは購入者自身でバックアップしてください。</p></article>
+              <article><h3>9. 第三者ライセンス</h3><p>本ソフトにはTabler Icons、Twemoji code、Twemoji graphicsなど第三者の資産が含まれます。詳細は同梱の <code>THIRD_PARTY_NOTICES.md</code> および各ライセンスファイルを確認してください。</p></article>
+              <article><h3>10. 免責事項</h3><p>本ソフトは現状有姿で提供されます。作者は、動作の完全性、継続性、正確性、特定目的への適合性、生成結果の品質、データの保持、第三者サービスやモデルとの互換性を保証しません。</p></article>
+              <article><h3>11. サポートとアップデート</h3><p>作者は不具合修正やアップデートを行う場合がありますが、継続的なアップデート、個別環境での動作保証、個別カスタマイズ対応を約束するものではありません。</p></article>
+              <article><h3>12. 規約の変更</h3><p>作者は必要に応じて本規約を変更できるものとします。既購入者に著しく不利益となる変更を行う場合は、BOOTHの商品ページまたはBOOTHメッセージ機能、および公式Xアカウント等で告知します。</p></article>
+              <article><h3>13. お問い合わせ</h3><p>本ソフトに関する問い合わせはBOOTHメッセージから行ってください。BOOTHメッセージ以外の個別連絡手段、Discord、メール、外部フォームでのサポートは用意していません。</p></article>
+            </div>
+          </section>
+
+          <section class="section" id="licenses">
+            <h2>第三者ライセンス</h2>
+            <ul><li>Tabler Icons: MIT License</li><li>Twemoji code: MIT License</li><li>Twemoji graphics: Creative Commons Attribution 4.0 International</li></ul>
+            <p>詳細は配布ファイルに同梱される <code>THIRD_PARTY_NOTICES.md</code> および各ライセンスファイルを確認してください。</p>
+          </section>
+
+          <section class="section" id="updates">
+            <h2>更新情報</h2>
+            <p>Role Garden WebUIの重要なお知らせ、更新情報、利用規約変更の告知を掲載します。</p>
+            <div class="card"><h3>2026-06-21</h3><p>利用規約 v1.0 を制定しました。</p></div>
+          </section>
+
+          <footer class="footer">
+            <p>Role Garden WebUI サポート / 公開用マニュアル</p>
+          </footer>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../../assets/site.js"></script>
 </body>
 </html>
