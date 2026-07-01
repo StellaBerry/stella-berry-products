@@ -1,0 +1,155 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f9f8;
+  --panel: #ffffff;
+  --soft: #eef5f2;
+  --text: #24302f;
+  --muted: #5e6c69;
+  --border: #dce6e2;
+  --accent: #4aa39a;
+  --accent-dark: #2f716c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  width: min(980px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 72px;
+}
+
+.hero {
+  padding: 44px 0 36px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero.compact {
+  padding-top: 32px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent-dark);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 16px;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1.12;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: 1.45rem;
+}
+
+.lead {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.section {
+  padding: 36px 0 0;
+}
+
+.product-card,
+.link-card {
+  display: block;
+  padding: 22px 24px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  text-decoration: none;
+}
+
+.product-card:hover,
+.link-card:hover {
+  border-color: var(--accent);
+}
+
+.product-title,
+.link-title {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.product-copy,
+.link-copy {
+  display: block;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.language-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.language-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--accent-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.note {
+  padding: 18px 20px;
+  border-left: 4px solid var(--accent);
+  background: var(--soft);
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .page {
+    width: min(100% - 28px, 980px);
+    padding-top: 32px;
+  }
+
+  .hero {
+    padding-top: 24px;
+  }
+}
