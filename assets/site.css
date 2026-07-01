@@ -79,14 +79,24 @@ img {
 }
 
 .brand-mark {
-  display: inline-grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
   width: 34px;
   height: 34px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent), #7dcabf);
-  color: #fff;
-  font-weight: 900;
+  border-radius: 11px;
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.35), transparent 34%),
+    linear-gradient(135deg, var(--accent), #7dcabf);
+  box-shadow: 0 10px 22px rgba(50, 101, 113, 0.18);
+  overflow: hidden;
+}
+
+.brand-mark img {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
 .top-actions {
@@ -121,7 +131,8 @@ img {
   padding: 52px 0 44px;
 }
 
-.hero.compact {
+.hero.compact,
+.hero.hero-single {
   grid-template-columns: minmax(0, 1fr);
   max-width: 880px;
 }
@@ -464,14 +475,19 @@ code {
 
 .terms {
   display: grid;
-  gap: 16px;
+  gap: 22px;
 }
 
 .terms article {
-  padding: 18px 20px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--panel);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.terms article + article {
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
 }
 
 .footer {
