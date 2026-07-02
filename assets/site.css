@@ -105,6 +105,13 @@ img {
   gap: 12px;
 }
 
+.language-label {
+  color: var(--muted);
+  font-size: .84rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
 .language-select {
   min-width: 146px;
   min-height: 38px;
@@ -199,6 +206,42 @@ h4 {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.78);
   box-shadow: var(--shadow);
+}
+
+.home-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+}
+
+.home-sitemap {
+  position: sticky;
+  top: 88px;
+  padding-top: 32px;
+}
+
+.home-sitemap a {
+  display: block;
+  padding: 7px 0;
+  border-top: 1px solid rgba(220, 232, 228, .72);
+  color: var(--text);
+  font-size: .94rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-sitemap a:hover,
+.home-sitemap .sitemap-emphasis {
+  color: var(--accent-dark);
+}
+
+.home-content {
+  min-width: 0;
+}
+
+.home-intro h1 {
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
 }
 
 .mock-window {
@@ -397,6 +440,10 @@ h4 {
   gap: 16px;
 }
 
+.sitemap-grid-compact {
+  grid-template-columns: 1.15fr 1fr;
+}
+
 .sitemap-block {
   padding: 0;
   border: 0;
@@ -570,12 +617,18 @@ code {
 
 @media (max-width: 900px) {
   .hero,
-  .layout {
+  .layout,
+  .home-layout {
     grid-template-columns: 1fr;
   }
 
-  .toc {
+  .toc,
+  .home-sitemap {
     position: static;
+  }
+
+  .home-sitemap {
+    padding-top: 0;
   }
 
   .feature-grid {

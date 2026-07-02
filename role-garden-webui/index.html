@@ -13,7 +13,8 @@
       <div class="topbar-inner">
         <a class="brand" href="../"><span class="brand-mark"><img src="../assets/role-garden-logo.svg" alt=""></span><span>Role Garden WebUI</span></a>
         <div class="top-actions">
-          <select class="language-select" data-language-select aria-label="Language">
+          <label class="language-label" for="languageSelect">Languages</label>
+          <select id="languageSelect" class="language-select" data-language-select aria-label="Language">
             <option value="./ja/" selected>日本語</option>
             <option value="./en/">English</option>
             <option value="./ko/">한국어</option>
@@ -25,51 +26,53 @@
     </header>
 
     <main class="page">
-      <section class="hero hero-single">
-        <div>
-          <p class="eyebrow">Role Garden WebUI</p>
-          <h1>Role Garden WebUI<br>ドキュメント</h1>
-          <p class="lead">ローカルLLM/Ollamaを使って、キャラクターとのタイムライン、DM、リプライ、ロールプレイを楽しむためのWindows向けWebUIです。</p>
-          <div class="badge-row">
-            <span class="badge">Windows 64bit</span>
-            <span class="badge">Ollama</span>
-            <span class="badge">Local LLM</span>
-            <span class="badge">スマホ接続</span>
-          </div>
-        </div>
-      </section>
+      <div class="home-layout">
+        <aside class="home-sitemap" aria-label="サイトマップ">
+          <div class="toc-title">Site map</div>
+          <a href="#intro">はじめに</a>
+          <a href="./ja/#install">インストール</a>
+          <a href="./ja/#basic">基本操作</a>
+          <a href="./ja/#phone">スマホ接続</a>
+          <a href="./ja/#trouble">困ったとき</a>
+          <a class="sitemap-emphasis" href="./ja/#terms">利用規約</a>
+          <a href="./ja/#licenses">第三者ライセンス</a>
+          <a href="./ja/#updates">更新情報</a>
+        </aside>
 
-      <section class="section">
-        <h2>サイトマップ</h2>
-        <div class="sitemap-grid">
-          <nav class="sitemap-block" aria-labelledby="sitemap-manual">
-            <h3 id="sitemap-manual">マニュアル</h3>
-            <a href="./ja/#start"><span>はじめに</span><small>概要、必要環境、購入前の注意</small></a>
-            <a href="./ja/#install"><span>インストール</span><small>zip展開、起動方法、batの選び方</small></a>
-            <a href="./ja/#basic"><span>基本操作</span><small>タイムライン、DM、返信、設定</small></a>
-            <a href="./ja/#phone"><span>スマホ接続</span><small>LAN公開、PIN、QRコード</small></a>
-            <a href="./ja/#trouble"><span>困ったとき</span><small>起動、Ollama、LAN、モデル</small></a>
-          </nav>
-          <nav class="sitemap-block" aria-labelledby="sitemap-policy">
-            <h3 id="sitemap-policy">利用・サポート</h3>
-            <a class="sitemap-emphasis" href="./ja/#terms"><span>利用規約</span><small>利用条件、禁止事項、生成物、変更履歴</small></a>
-            <a href="./ja/#licenses"><span>第三者ライセンス</span><small>同梱物、外部ライブラリ、モデル</small></a>
-            <a href="./ja/#updates"><span>更新情報</span><small>配布版、告知、規約の確認</small></a>
-          </nav>
-          <nav class="sitemap-block" aria-labelledby="sitemap-languages">
-            <h3 id="sitemap-languages">Languages</h3>
-            <a href="./ja/"><span>日本語</span><small>Japanese</small></a>
-            <a href="./en/"><span>English</span><small>English manual</small></a>
-            <a href="./ko/"><span>한국어</span><small>Korean guide</small></a>
-            <a href="./zh-cn/"><span>简体中文</span><small>Simplified Chinese guide</small></a>
-            <a href="./zh-tw/"><span>繁體中文</span><small>Traditional Chinese guide</small></a>
-          </nav>
-        </div>
-      </section>
+        <div class="home-content">
+          <section class="section home-intro" id="intro">
+            <p class="eyebrow">Role Garden WebUI</p>
+            <h1>はじめに</h1>
+            <p class="lead">Role Garden WebUIは、ローカルLLM/Ollamaを使って、キャラクターとのタイムライン、DM、リプライ、ロールプレイを楽しむためのWindows向けWebUIです。</p>
+            <div class="badge-row">
+              <span class="badge">Windows 64bit</span>
+              <span class="badge">Ollama</span>
+              <span class="badge">Local LLM</span>
+              <span class="badge">スマホ接続</span>
+            </div>
+          </section>
 
-      <section class="section">
-        <p class="warning">このGitHub Pages版は公開用マニュアル置き場です。正式な配布物や追加情報への導線は、BOOTHおよび公式告知も確認してください。</p>
-      </section>
+          <section class="section" id="sitemap">
+            <h2>サイトマップ</h2>
+            <div class="sitemap-grid sitemap-grid-compact">
+              <nav class="sitemap-block" aria-labelledby="sitemap-manual">
+                <h3 id="sitemap-manual">マニュアル</h3>
+                <a href="./ja/#start"><span>はじめに</span><small>概要、必要環境、購入前の注意</small></a>
+                <a href="./ja/#install"><span>インストール</span><small>zip展開、起動方法、batの選び方</small></a>
+                <a href="./ja/#basic"><span>基本操作</span><small>タイムライン、DM、返信、設定</small></a>
+                <a href="./ja/#phone"><span>スマホ接続</span><small>LAN公開、PIN、QRコード</small></a>
+                <a href="./ja/#trouble"><span>困ったとき</span><small>起動、Ollama、LAN、モデル</small></a>
+              </nav>
+              <nav class="sitemap-block" aria-labelledby="sitemap-policy">
+                <h3 id="sitemap-policy">利用・サポート</h3>
+                <a class="sitemap-emphasis" href="./ja/#terms"><span>利用規約</span><small>利用条件、禁止事項、生成物、変更履歴</small></a>
+                <a href="./ja/#licenses"><span>第三者ライセンス</span><small>同梱物、外部ライブラリ、モデル</small></a>
+                <a href="./ja/#updates"><span>更新情報</span><small>配布版、告知、規約の確認</small></a>
+              </nav>
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
   </div>
   <script src="../assets/site.js"></script>
