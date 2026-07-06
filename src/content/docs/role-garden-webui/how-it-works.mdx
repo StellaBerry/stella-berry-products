@@ -1,0 +1,128 @@
+---
+title: しくみ
+description: Role Garden WebUI は外部と通信せず（モデル取得を除く）、入力を学習にも使いません。データの居場所と生成の処理順を図で説明します。
+---
+
+import { CardGrid, Card } from '@astrojs/starlight/components';
+
+**Role Garden WebUI は、あなたのPCの中だけで動きます。入力も生成物も外に出ません。**
+要点は次の3つです。
+
+<CardGrid>
+  <Card title="通信しない" icon="laptop">
+    外部と通信する機能はありません（AIモデルのダウンロードを除く）。
+  </Card>
+  <Card title="学習しない" icon="seti:default">
+    あなたの入力でAIモデルが書き換わることはありません。
+  </Card>
+  <Card title="記憶はローカル" icon="open-book">
+    キャラの記憶は「日記」としてPC内に保存され、外へ出ません。
+  </Card>
+</CardGrid>
+
+## 図①：データはどこにあるか
+
+インターネットにつながるのは、いちばん外側の一本の線だけ。それは **初回のモデル取得** のためのものです。LAN公開をONにしたときのスマホ通信は、**家の中（LAN）の枠の中で完結** し、インターネットには届きません。
+
+<figure class="rg-figure">
+  <svg viewBox="0 0 720 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="f1t f1d">
+    <title id="f1t">全体像：データの居場所と境界</title>
+    <desc id="f1d">上部のglobeがインターネット。家の中（LAN）の枠にルーター/無線AP、その内側にあなたのPCの枠（ブラウザ・ローカルサーバー・ローカルLLM・DB）。globeとつながるのは初回のモデル取得のみ。LAN公開時のスマホ通信は家の中の枠内で完結する。</desc>
+    <circle cx="360" cy="52" r="22" class="f-accStroke" stroke-width="2.5" />
+    <ellipse cx="360" cy="52" rx="8" ry="22" class="f-accStroke" stroke-width="1.5" />
+    <line x1="338" y1="52" x2="382" y2="52" class="f-accStroke" stroke-width="1.5" />
+    <line x1="360" y1="30" x2="360" y2="74" class="f-accStroke" stroke-width="1.5" />
+    <text class="f-lbl" x="392" y="49">インターネット</text>
+    <path class="f-net" d="M360,74 L360,194" />
+    <text class="f-acc" x="372" y="112">初回のモデル取得のみ</text>
+    <text class="f-sub" x="372" y="128">（受信・1回だけ）</text>
+    <rect class="f-boxOuter" x="40" y="150" width="640" height="410" rx="16" />
+    <text class="f-lbl" x="60" y="178">家の中（LAN）</text>
+    <rect class="f-node" x="290" y="194" width="140" height="44" rx="10" />
+    <text class="f-lbl" x="360" y="221" text-anchor="middle">ルーター / 無線AP</text>
+    <rect class="f-boxPC" x="72" y="286" width="330" height="250" rx="14" />
+    <text class="f-lbl" x="90" y="313">あなたのPC</text>
+    <rect class="f-node" x="92" y="326" width="134" height="44" rx="8" />
+    <text class="f-lbls" x="159" y="352" text-anchor="middle">ブラウザ（WebUI）</text>
+    <rect class="f-node" x="240" y="326" width="134" height="44" rx="8" />
+    <text class="f-lbls" x="307" y="352" text-anchor="middle">ローカルサーバー</text>
+    <rect class="f-node" x="92" y="398" width="134" height="44" rx="8" />
+    <text class="f-lbls" x="159" y="424" text-anchor="middle">ローカルLLM(Ollama)</text>
+    <rect class="f-node" x="240" y="398" width="134" height="44" rx="8" />
+    <text class="f-lbls" x="307" y="424" text-anchor="middle">ローカルDB</text>
+    <text class="f-cap" x="90" y="508">生成はこの枠の中だけで完結</text>
+    <rect class="f-node" x="452" y="360" width="176" height="70" rx="12" />
+    <text class="f-lbl" x="540" y="390" text-anchor="middle">スマホ / タブレット</text>
+    <text class="f-sub" x="540" y="409" text-anchor="middle">（LAN公開ON時のみ）</text>
+    <path class="f-wire" d="M338,238 L300,286" />
+    <path class="f-wire" d="M420,230 L516,360" />
+    <text class="f-acc" x="470" y="300">家庭内だけ</text>
+    <line class="f-wire" x1="48" y1="582" x2="80" y2="582" />
+    <text class="f-sub" x="86" y="586">家庭内LANの配線</text>
+    <line class="f-net" x1="300" y1="582" x2="332" y2="582" />
+    <text class="f-acc" x="338" y="586">インターネット経由＝モデル取得のみ</text>
+  </svg>
+  <figcaption class="rg-figcaption">図①：インターネット → 家の中（LAN） → あなたのPC、の入れ子。越境するのはモデル取得だけ。</figcaption>
+</figure>
+
+## 図②：メッセージ生成の処理順
+
+1回の生成は、すべて「あなたのPC」の中だけで完結します。キャラクターがあなたを覚えているのは、**日記（長期記憶）を毎回読み返している** ためです。
+
+<figure class="rg-figure">
+  <svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="f2t f2d">
+    <title id="f2t">メッセージ生成の処理順</title>
+    <desc id="f2d">あなたのPCの枠の中で、①入力 ②日記とキャラ設定と直近会話でプロンプト構築 ③ローカルLLMで生成 ④表示とDB保存、の順に進む。日記は手順2で読み返し、手順4で書き留める。外に出る通信はない。</desc>
+    <defs>
+      <marker id="arw2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--fig-line-strong)" />
+      </marker>
+    </defs>
+    <rect class="f-boxPC" x="30" y="16" width="660" height="448" rx="16" />
+    <text class="f-lbl" x="50" y="44">あなたのPC</text>
+    <text class="f-acc" x="670" y="44" text-anchor="end">外に出る通信はありません</text>
+    <rect class="f-node" x="64" y="176" width="128" height="120" rx="12" />
+    <text class="f-lbl" x="128" y="228" text-anchor="middle">日記</text>
+    <text class="f-sub" x="128" y="248" text-anchor="middle">（長期記憶）</text>
+    <rect class="f-node" x="240" y="60" width="410" height="56" rx="10" />
+    <text class="f-lbls" x="445" y="93" text-anchor="middle">① あなたが入力（例：DMを送る）</text>
+    <rect class="f-node" x="240" y="150" width="410" height="72" rx="10" />
+    <text class="f-lbls" x="445" y="182" text-anchor="middle">② プロンプトを組み立てる</text>
+    <text class="f-sub" x="445" y="203" text-anchor="middle">日記 ＋ キャラ設定 ＋ 直近の会話</text>
+    <rect class="f-node" x="240" y="256" width="410" height="60" rx="10" />
+    <text class="f-lbls" x="445" y="291" text-anchor="middle">③ ローカルLLMが生成（Ollama）</text>
+    <rect class="f-node" x="240" y="350" width="410" height="60" rx="10" />
+    <text class="f-lbls" x="445" y="385" text-anchor="middle">④ 画面に表示 ＋ PC内DBへ保存</text>
+    <line class="f-wire" x1="445" y1="116" x2="445" y2="150" marker-end="url(#arw2)" />
+    <line class="f-wire" x1="445" y1="222" x2="445" y2="256" marker-end="url(#arw2)" />
+    <line class="f-wire" x1="445" y1="316" x2="445" y2="350" marker-end="url(#arw2)" />
+    <path class="f-wire" d="M192,196 L240,186" marker-end="url(#arw2)" />
+    <text class="f-acc" x="200" y="176">読み返す</text>
+    <path class="f-wire" d="M240,392 C150,392 128,340 128,300" marker-end="url(#arw2)" />
+    <text class="f-acc" x="150" y="420">書き留める</text>
+  </svg>
+  <figcaption class="rg-figcaption">図②：生成の処理順。日記を毎回読み返し（②）、終わったら書き留める（④）。すべてPC内。</figcaption>
+</figure>
+
+## 「学習」と「記憶」は別物です
+
+「AIに入力する」と「AIが学習する」は、よく混同されますが別のことです。
+
+<CardGrid>
+  <Card title="学習：しません" icon="close">
+    土台となるAIモデルは完成済みで、あなたが使っても中身が書き換わることはありません。あなたの入力が、他の人の環境や元のAIに反映されることもありません。
+  </Card>
+  <Card title="記憶：します（PC内の日記）" icon="approve-check">
+    キャラクターがあなたを覚えていくのは、会話の要点を日記としてPC内に保存し、生成のたびに読み返しているためです。この日記も外へは出ません。
+  </Card>
+</CardGrid>
+
+:::note
+クラウド型のAIサービスでは、入力が学習に使われる場合もあります。一方、本アプリのようにPC内で動くローカルAIは学習を行いません。
+:::
+
+## 例外（正直にお伝えします）
+
+- 外部と通信するのは **初回のモデルのダウンロード時のみ** です。以降の生成では通信しません。
+- ユーザーご自身の操作（SNS投稿、生成文のコピー、クラウド同期など）でデータを外へ出すのは、アプリの機能とは別の話です。
+- **LAN公開** を任意でONにした場合のみ、同じ家庭内ネットワークにある自分の端末からアクセスできます。これはインターネットや第三者へ送るものではありません（[スマホ接続](/stella-berry-products/role-garden-webui/mobile/)）。

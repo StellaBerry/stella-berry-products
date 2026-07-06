@@ -1,0 +1,115 @@
+/* Role Garden WebUI Documents — ブランドテーマ
+   ライト =「陽だまりの庭」(生成り × 深緑 × アプリコット) …… 既定
+   ダーク =「宵の庭」(深紺 × ラベンダー × 淡桃) …… 右上トグルで選択可
+   値はアプリの BUILTIN_THEMES と一致させている。 */
+
+/* ---------- ダーク：宵の庭 ---------- */
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #2b2e4e;
+  --sl-color-accent: #a48bf0;
+  --sl-color-accent-high: #c3b0f7;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #eceaf6;
+  --sl-color-gray-2: #dddbec;
+  --sl-color-gray-3: #a5a3be;
+  --sl-color-gray-4: #6f719b;
+  --sl-color-gray-5: #33365a;
+  --sl-color-gray-6: #242743;
+  --sl-color-black: #191a2a;
+  --sl-color-text: #eceaf6;
+  --sl-color-text-accent: #c3b0f7;
+  --sl-color-bg: #191a2a;
+  --sl-color-bg-nav: #242743;
+  --sl-color-bg-sidebar: #242743;
+  --sl-color-bg-inline-code: #2b2e4e;
+  --sl-color-hairline: #33365a;
+  --sl-color-hairline-light: #454879;
+  --sl-color-hairline-shade: #141522;
+  /* 差し色（淡桃）。注意書き等に使う。 */
+  --sb-warm: #e06a6a;
+  --sb-warm-border: #6b4a55;
+}
+
+/* ---------- ライト：陽だまりの庭（既定） ---------- */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #dfeee4;
+  --sl-color-accent: #3f7d5a;
+  --sl-color-accent-high: #2f6547;
+  --sl-color-white: #2b3528;
+  --sl-color-gray-1: #33402f;
+  --sl-color-gray-2: #3e4b3a;
+  --sl-color-gray-3: #7a8471;
+  --sl-color-gray-4: #a7a891;
+  --sl-color-gray-5: #e2dac8;
+  --sl-color-gray-6: #f4f0e4;
+  --sl-color-gray-7: #faf6ee;
+  --sl-color-black: #faf6ee;
+  --sl-color-text: #33402f;
+  --sl-color-text-accent: #2f6547;
+  --sl-color-bg: #faf6ee;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #f4f0e4;
+  --sl-color-bg-inline-code: #efe8da;
+  --sl-color-hairline: #e2dac8;
+  --sl-color-hairline-light: #efe8da;
+  --sl-color-hairline-shade: #efe8da;
+  /* 差し色（アプリコット）。 */
+  --sb-warm: #c65d4a;
+  --sb-warm-border: #e3b3a6;
+}
+
+/* ---------- しくみページの図（ライト/ダークに追従） ---------- */
+.rg-figure {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 12px;
+  background: var(--sl-color-bg-nav);
+  padding: 12px;
+  margin: 1.25rem 0;
+}
+.rg-figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.rg-figcaption {
+  color: var(--sl-color-gray-3);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+/* 図中のトークン（SVGはcurrentColor/変数で着色） */
+.rg-figure {
+  --fig-line: var(--sl-color-gray-4);
+  --fig-line-strong: var(--sl-color-gray-3);
+  --fig-surface: var(--sl-color-bg);
+  --fig-surface-2: var(--sl-color-bg-sidebar);
+  --fig-node: var(--sl-color-bg-nav);
+  --fig-text: var(--sl-color-text);
+  --fig-muted: var(--sl-color-gray-3);
+  --fig-accent: var(--sl-color-accent);
+}
+
+/* 「注意」系の小さなピル（差し色） */
+.sb-pill-warm {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--sb-warm);
+  border: 1px solid var(--sb-warm-border);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+/* しくみページの図：SVG要素のクラス（インラインstyleを避け、テーマ変数で着色） */
+.rg-figure text { font-family: var(--__sl-font, system-ui, -apple-system, 'Segoe UI', sans-serif); }
+.rg-figure .f-boxOuter { fill: var(--fig-surface-2); stroke: var(--fig-line-strong); stroke-width: 2; }
+.rg-figure .f-boxPC { fill: var(--fig-node); stroke: var(--fig-line-strong); stroke-width: 2; }
+.rg-figure .f-node { fill: var(--fig-surface); stroke: var(--fig-line); stroke-width: 1.5; }
+.rg-figure .f-lbl { fill: var(--fig-text); font-size: 13px; font-weight: 600; }
+.rg-figure .f-lbls { fill: var(--fig-text); font-size: 11.5px; font-weight: 600; }
+.rg-figure .f-sub { fill: var(--fig-muted); font-size: 11px; }
+.rg-figure .f-cap { fill: var(--fig-muted); font-size: 12px; }
+.rg-figure .f-wire { stroke: var(--fig-line-strong); stroke-width: 2; fill: none; }
+.rg-figure .f-net { stroke: var(--fig-accent); stroke-width: 2.5; stroke-dasharray: 6 5; fill: none; }
+.rg-figure .f-acc { fill: var(--fig-accent); font-size: 11px; font-weight: 600; }
+.rg-figure .f-accStroke { stroke: var(--fig-accent); fill: none; }

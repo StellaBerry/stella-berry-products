@@ -1,0 +1,53 @@
+---
+title: はじめに
+description: Role Garden WebUI は、あなたのPCの中だけで動くローカルAIで、キャラクター創作とSNS風ロールプレイを楽しむWindows向けアプリです。
+hero:
+  title: Role Garden WebUI
+  tagline: あなたのPCの中だけで動く、ローカルAIのキャラクター創作＆SNS風ロールプレイ。
+  image:
+    file: ../../../assets/logo.svg
+    alt: Role Garden WebUI
+  actions:
+    - text: インストール方法
+      link: /stella-berry-products/role-garden-webui/install/
+      icon: right-arrow
+    - text: しくみを見る
+      link: /stella-berry-products/role-garden-webui/how-it-works/
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+見に来てくださって、ありがとうございます。
+**Role Garden WebUI** は、自分のPCの中だけで動く「ローカルAI」で、キャラクターとの会話・SNS風のタイムライン・DMロールプレイを楽しむための Windows 向けアプリです。
+
+自分側のキャラクターをSNSアカウントのように作り、そのキャラクターに紐づく相手キャラクターたちと、タイムラインやDMでやり取りできます。入力も生成結果もPCの外に出ないので、気兼ねなく物語を育てられます。
+
+<CardGrid>
+  <Card title="できること" icon="pencil">
+    - 世界観・自キャラ・相手キャラの作成
+    - SNS風タイムライン、リプライ、DM
+    - ロールプレイ向けの返信生成
+    - 文体・口調の分析
+    - テーマ、カラーパレット、スマホ表示
+  </Card>
+  <Card title="大事な前提" icon="information">
+    - Windows 64bit 向けです。
+    - Ollama 本体や LLM モデルは同梱していません。
+    - 初回セットアップとモデル取得にはインターネット接続が必要です。
+    - モデル取得後の通常生成は、PC内のローカルLLMで行われます。
+  </Card>
+</CardGrid>
+
+## はじめの一歩
+
+<CardGrid>
+  <LinkCard title="インストール方法" description="配布ファイルの展開から起動まで。まずは軽量構成から。" href="/stella-berry-products/role-garden-webui/install/" />
+  <LinkCard title="しくみ" description="外部送信なし・学習なし・記憶は日記。処理の流れを図で。" href="/stella-berry-products/role-garden-webui/how-it-works/" />
+  <LinkCard title="基本操作" description="世界観・キャラ作成から、タイムライン・DMの遊び方まで。" href="/stella-berry-products/role-garden-webui/basics/" />
+  <LinkCard title="スマホ接続" description="同じWi-Fiのスマホ・タブレットから使う方法。" href="/stella-berry-products/role-garden-webui/mobile/" />
+</CardGrid>
+
+:::note
+LAN公開は家庭内LAN向けの機能です。インターネットへ直接公開しないでください。詳しくは [スマホ接続](/stella-berry-products/role-garden-webui/mobile/) を参照してください。
+:::
