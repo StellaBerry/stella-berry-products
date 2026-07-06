@@ -12,9 +12,9 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
     - セキュリティソフトが Python・bat・exe を止めていないか確認してください。
   </Card>
   <Card title="Ollama 関連" icon="warning">
-    - Ollama が未導入の場合は公式サイトから導入してください。
-    - 既存の Ollama があれば再利用します。
-    - モデル取得には時間とストレージ容量が必要です。
+    - 初回セットアップ（ランチャー）が Ollama の用意も行います。うまくいかない場合は、公式サイトから手動で導入してください。
+    - 既存の Ollama があれば再利用します（自動更新はしません）。
+    - モデル取得には時間とストレージ容量が必要です。足りないモデルだけが取得されます。
   </Card>
   <Card title="生成が遅い" icon="warning">
     - 重いモデルを選んでいる可能性があります。
