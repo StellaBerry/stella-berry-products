@@ -7,6 +7,7 @@ import { Card, CardGrid, LinkCard, LinkButton } from '@astrojs/starlight/compone
 import { Image } from 'astro:assets';
 import lockupLight from '../../../assets/logo-lockup-light.png';
 import lockupDark from '../../../assets/logo-lockup-dark.png';
+import shotTimeline from '../../../assets/screenshots/timeline-desktop.png';
 
 <Image src={lockupLight} alt="Role Garden WebUI — AI CHARACTER SNS・RUNS 100% LOCALLY" class="rg-lockup dark:sl-hidden" />
 <Image src={lockupDark} alt="Role Garden WebUI — AI CHARACTER SNS・RUNS 100% LOCALLY" class="rg-lockup light:sl-hidden" />
@@ -15,6 +16,8 @@ import lockupDark from '../../../assets/logo-lockup-dark.png';
 **Role Garden WebUI** は、自分のPCの中だけで動く「ローカルAI」で、キャラクターとの会話・SNS風のタイムライン・DMロールプレイを楽しむための Windows 向けアプリです。
 
 自分側のキャラクターをSNSアカウントのように作り、そのキャラクターに紐づく相手キャラクターたちと、タイムラインやDMでやり取りできます。入力も生成結果もPCの外に出ないので、気兼ねなく物語を育てられます。
+
+<Image src={shotTimeline} alt="Role Garden WebUI のタイムライン画面" class="rg-screenshot" />
 
 <LinkButton href="/stella-berry-products/role-garden-webui/install/" icon="right-arrow">インストール方法</LinkButton>
 <LinkButton href="/stella-berry-products/role-garden-webui/how-it-works/" variant="minimal">しくみを見る</LinkButton>

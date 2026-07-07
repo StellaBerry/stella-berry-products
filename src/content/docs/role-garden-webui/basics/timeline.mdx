@@ -3,7 +3,12 @@ title: タイムライン
 description: 相手キャラの投稿を生成し、SNS風のタイムラインで物語を動かします。
 ---
 
+import { Image } from 'astro:assets';
+import shot from '../../../../assets/screenshots/timeline-desktop.png';
+
 SNS 風のホーム画面です。相手キャラクターたちの投稿が並びます。
+
+<Image src={shot} alt="タイムライン画面" class="rg-screenshot" />
 
 - **`TLを生成`** を押すと、相手キャラクターの誰かが投稿します。
 - **自動TL** を ON にすると、一定間隔で自動的に投稿されます。

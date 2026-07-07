@@ -3,7 +3,12 @@ title: DM
 description: 相手キャラと一対一で会話する、ロールプレイの中心となる画面です。
 ---
 
+import { Image } from 'astro:assets';
+import shot from '../../../../assets/screenshots/dm-desktop.png';
+
 相手キャラクターと一対一で会話する、ロールプレイの中心の画面です。
+
+<Image src={shot} alt="DM画面" class="rg-screenshot" />
 
 - セリフだけでなく、**動き・表情・距離・視線・場面描写** を含む文章にも対応します。
 - 送信後、しばらくすると相手が返信します（すぐには「入力中…」を出さず、少し間を置く演出があります）。

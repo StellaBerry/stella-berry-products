@@ -3,7 +3,12 @@ title: プロフィール
 description: 自分が操作する自キャラの、名前・表示名・プロフィール・アイコン・ヘッダーを設定します。
 ---
 
+import { Image } from 'astro:assets';
+import shot from '../../../../assets/screenshots/profile-desktop.png';
+
 自分が操作する、SNS アカウントのような「自キャラ」の画面です。
+
+<Image src={shot} alt="プロフィール画面" class="rg-screenshot" />
 
 - **名前 / 表示名** を設定できます。
 - **プロフィール文** で人物像を書けます。

@@ -4,8 +4,16 @@ description: 同じWi-Fiのスマホ・タブレットからWebUIを使う方法
 ---
 
 import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import shotTl from '../../../assets/screenshots/timeline-mobile.png';
+import shotDm from '../../../assets/screenshots/dm-mobile.png';
 
 初期状態では、起動しているPCからだけ使えます。同じ Wi-Fi 内のスマホやタブレットから使いたい場合は、設定で **LAN公開** を有効にし、サーバーを再起動してください。
+
+<div class="rg-shot-row">
+  <Image src={shotTl} alt="スマホ表示のタイムライン" class="rg-screenshot" />
+  <Image src={shotDm} alt="スマホ表示のDM" class="rg-screenshot" />
+</div>
 
 ## 公開モード
 
