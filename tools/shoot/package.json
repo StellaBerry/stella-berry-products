@@ -1,0 +1,9 @@
+{
+  "name": "rgw-docs-shoot",
+  "private": true,
+  "type": "module",
+  "description": "Role Garden WebUI ドキュメント用スクリーンショット撮影(CDPブラウザ接続)",
+  "dependencies": {
+    "puppeteer-core": "^24.0.0"
+  }
+}

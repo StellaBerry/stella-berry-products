@@ -1,0 +1,40 @@
+---
+title: スマホ接続
+description: 同じWi-Fiのスマホ・タブレットからWebUIを使う方法（LAN公開とPIN認証）。
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import shotTl from '../../../assets/screenshots/timeline-mobile.png';
+import shotDm from '../../../assets/screenshots/dm-mobile.png';
+
+初期状態では、起動しているPCからだけ使えます。同じ Wi-Fi 内のスマホやタブレットから使いたい場合は、設定で **LAN公開** を有効にし、サーバーを再起動してください。
+
+<div class="rg-shot-row">
+  <Image src={shotTl} alt="スマホ表示のタイムライン" class="rg-screenshot" />
+  <Image src={shotDm} alt="スマホ表示のDM" class="rg-screenshot" />
+</div>
+
+## 公開モード
+
+| 設定 | 説明 |
+| --- | --- |
+| PCのみ | 一番安全です。起動しているPCからだけ使えます。 |
+| 公開（PIN認証あり） | 同じLAN内のスマホや別端末から接続できます。ランチャーに表示された PIN の入力が必要です。 |
+| 公開（PIN認証なし） | PIN 入力なしで接続できます。自宅など信頼できるネットワーク内でだけ使ってください。 |
+
+## 接続手順
+
+<Steps>
+
+1. 設定で LAN公開 を選びます。
+2. 設定欄に再起動案内が出たら、サーバーを再起動します。
+3. ランチャーのスマホ用 URL、または QR コードをスマホで開きます。
+4. PIN認証ありの場合は、ランチャーに表示された PIN を入力します。
+
+</Steps>
+
+:::caution
+LAN公開は家庭内LAN向けの機能です。インターネットへ直接公開しないでください。
+スマホ用 URL は `http://` で動作するため、通信内容は暗号化されません。共有 Wi-Fi や信用できない LAN では使わず、自宅など信頼できるネットワーク内だけで使ってください。
+:::
