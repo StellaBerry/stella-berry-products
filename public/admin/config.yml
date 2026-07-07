@@ -1,0 +1,42 @@
+# Sveltia CMS 設定(ローカル編集用)
+# 開き方: npm run dev → http://localhost:4321/stella-berry-products/admin/
+#         「ローカルリポジトリを使用」で stella-berry-products フォルダを選ぶ。
+# 保存するとファイルへ直接書き込まれる(コミットは別途)。
+
+backend:
+  name: github
+  repo: StellaBerry/stella-berry-products
+  branch: main
+
+# ブラウザから画像を追加した場合の置き場所(通常のスクショ差し替えは tools/shoot を使用)
+media_folder: public/uploads
+public_folder: /stella-berry-products/uploads
+
+collections:
+  - name: rgw
+    label: Role Garden WebUI Documents
+    description: >-
+      各ページの本文を編集できます。本文の先頭にある import 行や、<CardGrid>・<Steps>・<figure> などの
+      タグ(部品)は削除・改変しないでください。文章部分は自由に編集できます。
+    folder: src/content/docs/role-garden-webui
+    extension: mdx
+    format: frontmatter
+    create: true
+    fields:
+      - { label: タイトル, name: title, widget: string }
+      - { label: 説明(検索・共有用の一文), name: description, widget: string, required: false }
+      - { label: 本文, name: body, widget: markdown }
+
+  - name: rgw-basics
+    label: 基本操作の各ページ
+    description: >-
+      各画面(タイムライン・DM など)の説明ページです。import 行やタグ(部品)は残したまま、
+      文章部分を編集してください。
+    folder: src/content/docs/role-garden-webui/basics
+    extension: mdx
+    format: frontmatter
+    create: true
+    fields:
+      - { label: タイトル, name: title, widget: string }
+      - { label: 説明(検索・共有用の一文), name: description, widget: string, required: false }
+      - { label: 本文, name: body, widget: markdown }
