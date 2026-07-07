@@ -1,0 +1,40 @@
+---
+title: 手机连接
+description: 从同一Wi-Fi的手机·平板使用WebUI的方法(LAN公开与PIN认证)。
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import shotTl from '../../../../assets/screenshots/timeline-mobile.png';
+import shotDm from '../../../../assets/screenshots/dm-mobile.png';
+
+初始状态下，只能从运行中的电脑使用。想从同一Wi-Fi内的手机或平板使用时，请在设置中开启**LAN公开**并重启服务器。
+
+<div class="rg-shot-row">
+  <Image src={shotTl} alt="手机显示的时间线" class="rg-screenshot" />
+  <Image src={shotDm} alt="手机显示的DM" class="rg-screenshot" />
+</div>
+
+## 公开模式
+
+| 设置 | 说明 |
+| --- | --- |
+| 仅限PC | 最安全。只能从运行中的电脑使用。 |
+| 公开(有PIN认证) | 同一LAN内的手机等设备可以连接。需要输入启动器中显示的PIN。 |
+| 公开(无PIN认证) | 无需输入PIN即可连接。请仅在家中等可信网络内使用。 |
+
+## 连接步骤
+
+<Steps>
+
+1. 在设置中选择LAN公开。
+2. 出现重启提示后，重启服务器。
+3. 在手机上打开启动器中的手机专用URL或二维码。
+4. 如果开启了PIN认证，输入启动器中显示的PIN。
+
+</Steps>
+
+:::caution
+LAN公开是面向家庭内LAN的功能。请勿直接公开到互联网。
+手机专用URL以 `http://` 运行，通信内容不加密。请勿在共享Wi-Fi或不可信的LAN中使用，仅在家中等可信网络内使用。
+:::

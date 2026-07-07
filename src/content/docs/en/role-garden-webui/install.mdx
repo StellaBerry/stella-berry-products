@@ -1,0 +1,55 @@
+---
+title: Installation
+description: Extract the zip and double-click "Role Garden WebUI Launcher.exe" — the launcher handles the rest of the setup automatically.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+For Windows 64-bit. No tricky configuration needed — **just extract the zip and double-click the launcher**.
+
+## Setup steps
+
+<Steps>
+
+1. Extract the distribution zip anywhere you like.
+2. Double-click **`Role Garden WebUI Launcher.exe`**.
+3. The launcher prepares the right models for your PC and starts the app.
+
+</Steps>
+
+On first run, simply follow the on-screen guide: it checks your PC specs, lets you choose where to store data, and downloads the models with a progress bar. Basically, all you do is "double-click" and "confirm the models".
+
+## What you need
+
+- A Windows 64-bit PC
+- An internet connection for the initial setup
+
+## What the setup prepares automatically
+
+- Ollama (if not already on your PC)
+- AI models suited to your PC
+
+## Choosing models
+
+The launcher **automatically recommends** models that fit your GPU. If unsure, just go with the recommendation. If you try to pick a set that is too heavy, a warning appears.
+
+| Profile | Models | Guideline |
+| --- | --- | --- |
+| `low`  | gemma4:e2b, gemma4:e4b | Smaller GPUs / CPU-centric PCs |
+| `mid`  | + qwen3:14b | 11 GB+ VRAM |
+| `high` | + gemma4:26b | 20 GB+ VRAM |
+
+:::caution
+Models that are too heavy can take a very long time to generate or appear frozen. If unsure, start with the recommendation.
+:::
+
+## Storage locations
+
+You can choose where data and models are stored on the first-run screen.
+
+The defaults are fine as they are.
+
+## Start / Stop
+
+- **Start**: `Role Garden WebUI Launcher.exe`
+- **Stop**: the stop button in the launcher

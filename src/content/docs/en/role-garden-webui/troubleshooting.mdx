@@ -1,0 +1,33 @@
+---
+title: Troubleshooting
+description: Common fixes for startup issues, Ollama problems, slow generation, and mobile connection failures.
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+  <Card title="Won't start" icon="warning">
+    - Extract the zip before running.
+    - Run `Role Garden WebUI Launcher.exe`, or the start bat.
+    - Check that security software is not blocking Python, bat, or exe files.
+  </Card>
+  <Card title="Ollama issues" icon="warning">
+    - The first-run setup (launcher) also prepares Ollama. If it fails, install it manually from the official site.
+    - An existing Ollama is reused (never auto-updated).
+    - Downloading models takes time and storage. Only missing models are fetched.
+  </Card>
+  <Card title="Slow generation" icon="warning">
+    - You may have selected a model that is too heavy.
+    - Verify things work with a light model first.
+    - Speed depends on your PC, the model, and Ollama's state.
+  </Card>
+  <Card title="Can't connect from phone" icon="warning">
+    - Check that the PC and phone are on the same Wi-Fi.
+    - Check that Windows Firewall allows Python or port 7880.
+    - Also check router client isolation, VPNs, and virtual networks.
+  </Card>
+</CardGrid>
+
+## Backup
+
+Data is normally stored under `Documents\RoleGardenWebUI\`. Back it up as needed before updating, reinstalling, uninstalling, resetting data, or editing files by hand.

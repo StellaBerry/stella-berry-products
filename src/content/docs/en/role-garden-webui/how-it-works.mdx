@@ -1,0 +1,70 @@
+---
+title: How It Works
+description: Role Garden WebUI never communicates externally (except the model download) and never uses your input for training. Diagrams show where your data lives and how replies are generated.
+---
+
+import { CardGrid, Card } from '@astrojs/starlight/components';
+import HowItWorksFig1 from '../../../../components/HowItWorksFig1.astro';
+import HowItWorksFig2 from '../../../../components/HowItWorksFig2.astro';
+
+**Role Garden WebUI runs entirely inside your PC. Neither your input nor the generated content ever leaves it.**
+Three key points:
+
+<CardGrid>
+  <Card title="No communication" icon="laptop">
+    There is no feature that talks to the outside (except downloading AI models).
+  </Card>
+  <Card title="No training" icon="seti:default">
+    Your input never rewrites the AI model.
+  </Card>
+  <Card title="Memory stays local" icon="open-book">
+    Characters' memories are stored as a "diary" on your PC and never leave it.
+  </Card>
+</CardGrid>
+
+## Fig. 1: Where your data lives
+
+The only line to the internet is the outermost one — used **only for the initial model download**. When LAN sharing is ON, your phone's traffic **stays inside your home (LAN)** and never reaches the internet.
+
+<HowItWorksFig1 lang="en" />
+
+## Fig. 2: How a reply is generated
+
+Each generation completes entirely inside "Your PC". Characters remember you because the app **reads back the diary (long-term memory) every time**.
+
+<HowItWorksFig2 lang="en" />
+
+## "Training" and "memory" are different things
+
+"Typing into an AI" and "the AI learning from it" are often confused, but they are separate.
+
+<CardGrid>
+  <Card title="Training: never happens" icon="close">
+    The underlying AI model is a finished product — using it never rewrites it, and your input is never reflected in other people's environments or the original AI.
+  </Card>
+  <Card title="Memory: yes (a diary on your PC)" icon="approve-check">
+    Characters remember you because the app saves the gist of your conversations as a diary on your PC and reads it back on every generation. This diary never leaves your PC either.
+  </Card>
+</CardGrid>
+
+:::note
+Some cloud AI services may use your input for training. A local AI like this app does not train at all.
+:::
+
+## Exceptions
+
+- The app communicates externally **only during the initial model download**. No communication happens during generation.
+- Taking data outside yourself (posting to SNS, copying generated text, cloud sync, etc.) is a separate matter from the app's own behavior.
+- Only if you turn on **LAN sharing** can your own devices on the same home network access the app. This never sends anything to the internet or third parties ([Mobile access](/stella-berry-products/en/role-garden-webui/mobile/)).
+
+## Personal use and publishing
+
+Role Garden WebUI has no feature that communicates externally (except the AI model download). Your input, conversations, and generated content are never sent to the internet, and the author cannot see them.
+
+Your input is never used to train the AI. The underlying model is finished — using it never rewrites it, and your input is never reflected in other people's environments or the original AI.
+
+Characters "remember" your preferences and past conversations because the app writes them down like a "diary" inside your PC and reads it back every time it generates a message. This diary also stays inside your PC and never leaves it.
+
+Because of this, you can also enjoy roleplaying with characters you do not own the rights to. As long as everything stays on your PC and is enjoyed only by you, the design keeps it within the scope of "personal use".
+
+Publishing and sharing are not restricted. However, publishing screenshots or generated content involving characters you do not own to SNS and similar places can cause trouble with rights holders. We recommend keeping it within personal use, but whether to publish is your own decision and responsibility. The creator is not involved in and assumes no responsibility for any disputes between third parties arising from it.

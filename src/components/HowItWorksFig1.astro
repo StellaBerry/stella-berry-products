@@ -1,0 +1,120 @@
+---
+// しくみ 図①(全体像)の多言語版。日本語ページはインラインSVGのまま(正本)。
+const { lang = 'en' } = Astro.props;
+const DICT: Record<string, Record<string, string>> = {
+  en: {
+    internet: 'Internet',
+    modelOnly: 'Initial model download only',
+    recvOnce: '(receive only, one time)',
+    home: 'Your home (LAN)',
+    router: 'Router / Wi-Fi AP',
+    pc: 'Your PC',
+    browser: 'Browser (WebUI)',
+    llm: 'Local LLM (Ollama)',
+    db: 'Local database',
+    done: 'Generation happens only inside this box',
+    phone: 'Phone / Tablet',
+    lanOnly: '(only when LAN sharing is ON)',
+    homeOnly: 'Home only',
+    legendWire: 'Home LAN connection',
+    legendNet: 'Via internet = model download only',
+    caption: 'Fig. 1: Internet → your home (LAN) → your PC. The only thing that crosses the boundary is the model download.',
+    alt: 'Overview: where your data lives and its boundaries',
+  },
+  ko: {
+    internet: '인터넷',
+    modelOnly: '최초 모델 다운로드만',
+    recvOnce: '(수신·1회뿐)',
+    home: '집 안(LAN)',
+    router: '라우터 / 무선 AP',
+    pc: '내 PC',
+    browser: '브라우저(WebUI)',
+    llm: '로컬 LLM(Ollama)',
+    db: '로컬 데이터베이스',
+    done: '생성은 이 상자 안에서만 완결됩니다',
+    phone: '스마트폰 / 태블릿',
+    lanOnly: '(LAN 공개 ON일 때만)',
+    homeOnly: '가정 내에서만',
+    legendWire: '가정 내 LAN 연결',
+    legendNet: '인터넷 경유 = 모델 다운로드만',
+    caption: '그림 1: 인터넷 → 집 안(LAN) → 내 PC의 중첩 구조. 경계를 넘는 것은 모델 다운로드뿐입니다.',
+    alt: '전체 구조: 데이터의 위치와 경계',
+  },
+  zh: {
+    internet: '互联网',
+    modelOnly: '仅首次下载模型',
+    recvOnce: '(仅接收·仅一次)',
+    home: '家中(LAN)',
+    router: '路由器 / 无线AP',
+    pc: '你的电脑',
+    browser: '浏览器(WebUI)',
+    llm: '本地LLM(Ollama)',
+    db: '本地数据库',
+    done: '生成仅在此框内完成',
+    phone: '手机 / 平板',
+    lanOnly: '(仅在开启LAN公开时)',
+    homeOnly: '仅限家庭内',
+    legendWire: '家庭内LAN连线',
+    legendNet: '经由互联网 = 仅模型下载',
+    caption: '图1: 互联网 → 家中(LAN) → 你的电脑的嵌套结构。跨越边界的只有模型下载。',
+    alt: '整体结构: 数据的位置与边界',
+  },
+  'zh-tw': {
+    internet: '網際網路',
+    modelOnly: '僅首次下載模型',
+    recvOnce: '(僅接收·僅一次)',
+    home: '家中(LAN)',
+    router: '路由器 / 無線AP',
+    pc: '你的電腦',
+    browser: '瀏覽器(WebUI)',
+    llm: '本機LLM(Ollama)',
+    db: '本機資料庫',
+    done: '生成僅在此框內完成',
+    phone: '手機 / 平板',
+    lanOnly: '(僅在開啟LAN公開時)',
+    homeOnly: '僅限家庭內',
+    legendWire: '家庭內LAN連線',
+    legendNet: '經由網際網路 = 僅模型下載',
+    caption: '圖1: 網際網路 → 家中(LAN) → 你的電腦的巢狀結構。跨越邊界的只有模型下載。',
+    alt: '整體結構: 資料的位置與邊界',
+  },
+};
+const L = DICT[lang] ?? DICT.en;
+---
+
+<figure class="rg-figure">
+  <svg viewBox="0 0 720 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={L.alt}>
+    <circle cx="360" cy="34" r="22" class="f-accStroke" stroke-width="2.5" />
+    <ellipse cx="360" cy="34" rx="8" ry="22" class="f-accStroke" stroke-width="1.5" />
+    <line x1="338" y1="34" x2="382" y2="34" class="f-accStroke" stroke-width="1.5" />
+    <line x1="360" y1="12" x2="360" y2="56" class="f-accStroke" stroke-width="1.5" />
+    <text class="f-lbl" x="392" y="40">{L.internet}</text>
+    <path class="f-net" d="M360,56 L360,150" />
+    <text class="f-acc" x="372" y="96">{L.modelOnly}</text>
+    <text class="f-sub" x="372" y="114">{L.recvOnce}</text>
+    <rect class="f-boxOuter" x="40" y="150" width="640" height="410" rx="16" />
+    <text class="f-lbl" x="60" y="178">{L.home}</text>
+    <rect class="f-node" x="280" y="194" width="160" height="44" rx="10" />
+    <text class="f-lbls" x="360" y="221" text-anchor="middle">{L.router}</text>
+    <rect class="f-boxPC" x="72" y="286" width="330" height="250" rx="14" />
+    <text class="f-lbl" x="90" y="313">{L.pc}</text>
+    <rect class="f-node" x="92" y="326" width="134" height="44" rx="8" />
+    <text class="f-lbls" x="159" y="352" text-anchor="middle">{L.browser}</text>
+    <rect class="f-node" x="240" y="326" width="134" height="44" rx="8" />
+    <text class="f-lbls" x="307" y="352" text-anchor="middle">{L.llm}</text>
+    <rect class="f-node" x="92" y="398" width="134" height="44" rx="8" />
+    <text class="f-lbls" x="159" y="424" text-anchor="middle">{L.db}</text>
+    <text class="f-cap" x="90" y="508">{L.done}</text>
+    <rect class="f-node" x="452" y="360" width="176" height="70" rx="12" />
+    <text class="f-lbl" x="540" y="390" text-anchor="middle">{L.phone}</text>
+    <text class="f-sub" x="540" y="409" text-anchor="middle">{L.lanOnly}</text>
+    <path class="f-wire" d="M338,238 L300,286" />
+    <path class="f-wire" d="M420,230 L516,360" />
+    <text class="f-acc" x="470" y="300">{L.homeOnly}</text>
+    <line class="f-wire" x1="48" y1="582" x2="80" y2="582" />
+    <text class="f-sub" x="86" y="586">{L.legendWire}</text>
+    <line class="f-net" x1="300" y1="582" x2="332" y2="582" />
+    <text class="f-acc" x="338" y="586">{L.legendNet}</text>
+  </svg>
+  <figcaption class="rg-figcaption">{L.caption}</figcaption>
+</figure>

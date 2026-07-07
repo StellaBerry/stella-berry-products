@@ -1,0 +1,40 @@
+---
+title: Mobile Access
+description: How to use the WebUI from a phone or tablet on the same Wi-Fi (LAN sharing and PIN authentication).
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import shotTl from '../../../../assets/screenshots/timeline-mobile.png';
+import shotDm from '../../../../assets/screenshots/dm-mobile.png';
+
+By default, the app can only be used from the PC it runs on. To use it from a phone or tablet on the same Wi-Fi, enable **LAN sharing** in Settings and restart the server.
+
+<div class="rg-shot-row">
+  <Image src={shotTl} alt="Timeline on mobile" class="rg-screenshot" />
+  <Image src={shotDm} alt="DM on mobile" class="rg-screenshot" />
+</div>
+
+## Sharing modes
+
+| Setting | Description |
+| --- | --- |
+| PC only | The safest. Usable only from the PC running the app. |
+| Shared (with PIN) | Phones and other devices on the same LAN can connect. Requires the PIN shown in the launcher. |
+| Shared (no PIN) | Connect without entering a PIN. Use only on trusted networks such as your home. |
+
+## Connecting
+
+<Steps>
+
+1. Choose LAN sharing in Settings.
+2. When prompted, restart the server.
+3. Open the mobile URL or QR code shown in the launcher on your phone.
+4. If PIN authentication is on, enter the PIN shown in the launcher.
+
+</Steps>
+
+:::caution
+LAN sharing is meant for your home network. Never expose the app directly to the internet.
+The mobile URL uses `http://`, so traffic is not encrypted. Avoid shared or untrusted Wi-Fi; use it only on trusted networks such as your home.
+:::
