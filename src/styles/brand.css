@@ -3,6 +3,16 @@
    ダーク =「宵の庭」(深紺 × ラベンダー × 淡桃) …… 右上トグルで選択可
    値はアプリの BUILTIN_THEMES と一致させている。 */
 
+/* ---------- 言語別フォント ----------
+   韓国語/繁体中文はWindowsのフォールバックが明朝系・旧世代ゴシックになりがちなので、
+   Noto Sans系(KR/TC)を明示する。Starlight は --sl-font の後ろに標準フォールバックを自動連結する。 */
+:root:lang(ko) {
+  --sl-font: 'Noto Sans KR';
+}
+:root:lang(zh-TW) {
+  --sl-font: 'Noto Sans TC';
+}
+
 /* ---------- ダーク：宵の庭 ---------- */
 :root[data-theme='dark'] {
   --sl-color-accent-low: #2b2e4e;
