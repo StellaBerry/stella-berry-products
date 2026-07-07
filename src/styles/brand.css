@@ -4,10 +4,19 @@
    値はアプリの BUILTIN_THEMES と一致させている。 */
 
 /* ---------- 言語別フォント ----------
-   韓国語/繁体中文はWindowsのフォールバックが明朝系・旧世代ゴシックになりがちなので、
-   Noto Sans系(KR/TC)を明示する。Starlight は --sl-font の後ろに標準フォールバックを自動連結する。 */
+   全言語で Noto ファミリーを使用する。英語本文にも和文フォールバックが混ざらないよう、
+   各言語の Noto を明示する。Starlight は --sl-font の後ろに標準フォールバックを自動連結する。 */
+:root:lang(ja) {
+  --sl-font: 'Noto Sans JP';
+}
+:root:lang(en) {
+  --sl-font: 'Noto Sans', 'Noto Sans JP';
+}
 :root:lang(ko) {
   --sl-font: 'Noto Sans KR';
+}
+:root:lang(zh-CN) {
+  --sl-font: 'Noto Sans SC';
 }
 :root:lang(zh-TW) {
   --sl-font: 'Noto Sans TC';
