@@ -90,6 +90,14 @@
   --fig-accent: var(--sl-color-accent);
 }
 
+/* トップページの文字ロゴ（ロックアップ） */
+img.rg-lockup {
+  max-width: 540px;
+  width: 100%;
+  height: auto;
+  margin: 0.75rem 0 0.5rem;
+}
+
 /* 「注意」系の小さなピル（差し色） */
 .sb-pill-warm {
   display: inline-block;
