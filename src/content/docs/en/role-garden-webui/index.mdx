@@ -1,0 +1,47 @@
+---
+title: Getting Started
+description: Role Garden WebUI is a Windows app for character creation and SNS-style roleplay, powered by a local AI that runs entirely on your PC.
+---
+
+import { Card, CardGrid, LinkCard, LinkButton } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import lockupLight from '../../../../assets/logo-lockup-light.png';
+import lockupDark from '../../../../assets/logo-lockup-dark.png';
+import shotTimeline from '../../../../assets/screenshots/timeline-desktop.png';
+
+<Image src={lockupLight} alt="Role Garden WebUI — AI CHARACTER SNS・RUNS 100% LOCALLY" class="rg-lockup dark:sl-hidden" />
+<Image src={lockupDark} alt="Role Garden WebUI — AI CHARACTER SNS・RUNS 100% LOCALLY" class="rg-lockup light:sl-hidden" />
+
+Thank you for stopping by.
+**Role Garden WebUI** is a Windows app for enjoying conversations with characters, an SNS-style timeline, and DM roleplay — all driven by a local AI that runs only on your PC.
+
+Create your own character like an SNS account, and interact with the other characters tied to it through the timeline and DMs. Nothing you type and nothing that gets generated ever leaves your PC, so you can grow your stories with total peace of mind.
+
+<Image src={shotTimeline} alt="Role Garden WebUI timeline screen" class="rg-screenshot" />
+
+<LinkButton href="/stella-berry-products/en/role-garden-webui/install/" icon="right-arrow">Installation</LinkButton>
+<LinkButton href="/stella-berry-products/en/role-garden-webui/how-it-works/" variant="minimal">How it works</LinkButton>
+
+<CardGrid>
+  <Card title="What you can do" icon="pencil">
+    - Create worlds, your characters, and partner characters
+    - SNS-style timeline, replies, and DMs
+    - Roleplay-oriented reply generation
+    - Writing-style and tone analysis
+    - Themes, color palettes, mobile view
+  </Card>
+  <Card title="Good to know" icon="information">
+    - Runs on Windows 64-bit PCs.
+    - Ollama and the AI models are set up automatically on first launch (internet required).
+    - After that, all generation happens entirely on your PC.
+  </Card>
+</CardGrid>
+
+## First steps
+
+<CardGrid>
+  <LinkCard title="Installation" description="Just extract the zip and double-click the launcher." href="/stella-berry-products/en/role-garden-webui/install/" />
+  <LinkCard title="How it works" description="No data leaves your PC, no training on your input — explained with diagrams." href="/stella-berry-products/en/role-garden-webui/how-it-works/" />
+  <LinkCard title="Basics" description="From creating worlds and characters to playing with the timeline and DMs." href="/stella-berry-products/en/role-garden-webui/basics/" />
+  <LinkCard title="Mobile access" description="Use it from your phone or tablet on the same Wi-Fi." href="/stella-berry-products/en/role-garden-webui/mobile/" />
+</CardGrid>

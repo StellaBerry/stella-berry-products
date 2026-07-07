@@ -1,0 +1,100 @@
+---
+// しくみ 図②(メッセージ生成の処理順)の多言語版。日本語ページはインラインSVGのまま(正本)。
+const { lang = 'en' } = Astro.props;
+const DICT: Record<string, Record<string, string>> = {
+  en: {
+    pc: 'Your PC',
+    noComm: 'Nothing is sent outside',
+    diary: 'Diary',
+    diarySub: '(long-term memory)',
+    s1: '1. You type (e.g., send a DM)',
+    s2: '2. Build the prompt',
+    s2sub: 'diary + character profile + recent chat',
+    s3: '3. Local LLM generates (Ollama)',
+    s4: '4. Show on screen + save to local DB',
+    read: 'read back',
+    write: 'write down',
+    caption: 'Fig. 2: How a reply is generated. The diary is read back every time (2) and updated at the end (4). Everything stays on your PC.',
+    alt: 'Message generation flow',
+  },
+  ko: {
+    pc: '내 PC',
+    noComm: '밖으로 나가는 통신은 없습니다',
+    diary: '일기',
+    diarySub: '(장기 기억)',
+    s1: '1. 내가 입력(예: DM 보내기)',
+    s2: '2. 프롬프트 구성',
+    s2sub: '일기 + 캐릭터 설정 + 최근 대화',
+    s3: '3. 로컬 LLM이 생성(Ollama)',
+    s4: '4. 화면에 표시 + 로컬 DB에 저장',
+    read: '다시 읽기',
+    write: '기록',
+    caption: '그림 2: 생성 처리 순서. 일기를 매번 다시 읽고(2), 끝나면 기록합니다(4). 모두 PC 안에서 이루어집니다.',
+    alt: '메시지 생성 흐름',
+  },
+  zh: {
+    pc: '你的电脑',
+    noComm: '没有任何对外通信',
+    diary: '日记',
+    diarySub: '(长期记忆)',
+    s1: '1. 你输入(例: 发送DM)',
+    s2: '2. 组装提示词',
+    s2sub: '日记 + 角色设定 + 最近对话',
+    s3: '3. 本地LLM生成(Ollama)',
+    s4: '4. 显示在屏幕上 + 保存到本地DB',
+    read: '读取',
+    write: '写入',
+    caption: '图2: 生成的处理顺序。每次都会读取日记(2)，结束后写入(4)。全部在电脑内完成。',
+    alt: '消息生成流程',
+  },
+  'zh-tw': {
+    pc: '你的電腦',
+    noComm: '沒有任何對外通訊',
+    diary: '日記',
+    diarySub: '(長期記憶)',
+    s1: '1. 你輸入(例: 傳送DM)',
+    s2: '2. 組裝提示詞',
+    s2sub: '日記 + 角色設定 + 最近對話',
+    s3: '3. 本機LLM生成(Ollama)',
+    s4: '4. 顯示在畫面上 + 儲存到本機DB',
+    read: '讀取',
+    write: '寫入',
+    caption: '圖2: 生成的處理順序。每次都會讀取日記(2)，結束後寫入(4)。全部在電腦內完成。',
+    alt: '訊息生成流程',
+  },
+};
+const L = DICT[lang] ?? DICT.en;
+---
+
+<figure class="rg-figure">
+  <svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={L.alt}>
+    <defs>
+      <marker id={`arw2-${lang}`} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="var(--fig-line-strong)" />
+      </marker>
+    </defs>
+    <rect class="f-boxPC" x="30" y="16" width="660" height="448" rx="16" />
+    <text class="f-lbl" x="50" y="44">{L.pc}</text>
+    <text class="f-acc" x="670" y="44" text-anchor="end">{L.noComm}</text>
+    <rect class="f-node" x="64" y="176" width="128" height="120" rx="12" />
+    <text class="f-lbl" x="128" y="228" text-anchor="middle">{L.diary}</text>
+    <text class="f-sub" x="128" y="248" text-anchor="middle">{L.diarySub}</text>
+    <rect class="f-node" x="240" y="60" width="410" height="56" rx="10" />
+    <text class="f-lbls" x="445" y="93" text-anchor="middle">{L.s1}</text>
+    <rect class="f-node" x="240" y="150" width="410" height="72" rx="10" />
+    <text class="f-lbls" x="445" y="182" text-anchor="middle">{L.s2}</text>
+    <text class="f-sub" x="445" y="203" text-anchor="middle">{L.s2sub}</text>
+    <rect class="f-node" x="240" y="256" width="410" height="60" rx="10" />
+    <text class="f-lbls" x="445" y="291" text-anchor="middle">{L.s3}</text>
+    <rect class="f-node" x="240" y="350" width="410" height="60" rx="10" />
+    <text class="f-lbls" x="445" y="385" text-anchor="middle">{L.s4}</text>
+    <line class="f-wire" x1="445" y1="116" x2="445" y2="150" marker-end={`url(#arw2-${lang})`} />
+    <line class="f-wire" x1="445" y1="222" x2="445" y2="256" marker-end={`url(#arw2-${lang})`} />
+    <line class="f-wire" x1="445" y1="316" x2="445" y2="350" marker-end={`url(#arw2-${lang})`} />
+    <path class="f-wire" d="M192,196 L240,186" marker-end={`url(#arw2-${lang})`} />
+    <text class="f-acc" x="200" y="176">{L.read}</text>
+    <path class="f-wire" d="M240,392 C150,392 128,340 128,300" marker-end={`url(#arw2-${lang})`} />
+    <text class="f-acc" x="150" y="420">{L.write}</text>
+  </svg>
+  <figcaption class="rg-figcaption">{L.caption}</figcaption>
+</figure>

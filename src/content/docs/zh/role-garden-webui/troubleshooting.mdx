@@ -1,0 +1,33 @@
+---
+title: 故障排除
+description: 无法启动·Ollama相关·生成缓慢·手机无法连接等常见问题的处理。
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+  <Card title="无法启动" icon="warning">
+    - 请先解压zip再运行。
+    - 请运行 `Role Garden WebUI Launcher.exe` 或启动bat。
+    - 请确认安全软件没有拦截 Python·bat·exe。
+  </Card>
+  <Card title="Ollama相关" icon="warning">
+    - 首次设置(启动器)也会准备Ollama。如果失败，请从官网手动安装。
+    - 已有的Ollama会被复用(不会自动更新)。
+    - 下载模型需要时间和存储空间。只会获取缺少的模型。
+  </Card>
+  <Card title="生成缓慢" icon="warning">
+    - 可能选择了过重的模型。
+    - 请先用轻量模型确认能否运行。
+    - 速度取决于电脑性能、模型和Ollama的状态。
+  </Card>
+  <Card title="手机无法打开" icon="warning">
+    - 请确认电脑和手机在同一Wi-Fi。
+    - 请确认Windows防火墙允许Python或端口7880。
+    - 也请检查路由器的设备隔离、VPN、虚拟网络的影响。
+  </Card>
+</CardGrid>
+
+## 备份
+
+数据通常保存在 `Documents\RoleGardenWebUI\`。在更新、重装、卸载、初始化数据、手动编辑之前，请视需要进行备份。

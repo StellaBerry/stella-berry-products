@@ -1,0 +1,40 @@
+---
+title: 手機連線
+description: 從同一Wi-Fi的手機·平板使用WebUI的方法(LAN公開與PIN認證)。
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import shotTl from '../../../../assets/screenshots/timeline-mobile.png';
+import shotDm from '../../../../assets/screenshots/dm-mobile.png';
+
+初始狀態下，只能從運行中的電腦使用。想從同一Wi-Fi內的手機或平板使用時，請在設定中開啟**LAN公開**並重新啟動伺服器。
+
+<div class="rg-shot-row">
+  <Image src={shotTl} alt="手機顯示的時間軸" class="rg-screenshot" />
+  <Image src={shotDm} alt="手機顯示的DM" class="rg-screenshot" />
+</div>
+
+## 公開模式
+
+| 設定 | 說明 |
+| --- | --- |
+| 僅限PC | 最安全。只能從運行中的電腦使用。 |
+| 公開(有PIN認證) | 同一LAN內的手機等裝置可以連線。需要輸入啟動器中顯示的PIN。 |
+| 公開(無PIN認證) | 無需輸入PIN即可連線。請僅在家中等可信網路內使用。 |
+
+## 連線步驟
+
+<Steps>
+
+1. 在設定中選擇LAN公開。
+2. 出現重新啟動提示後，重新啟動伺服器。
+3. 在手機上打開啟動器中的手機專用URL或QR碼。
+4. 如果開啟了PIN認證，輸入啟動器中顯示的PIN。
+
+</Steps>
+
+:::caution
+LAN公開是面向家庭內LAN的功能。請勿直接公開到網際網路。
+手機專用URL以 `http://` 運行，通訊內容不加密。請勿在共享Wi-Fi或不可信的LAN中使用，僅在家中等可信網路內使用。
+:::

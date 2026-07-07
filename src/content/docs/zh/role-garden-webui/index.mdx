@@ -1,0 +1,47 @@
+---
+title: 开始使用
+description: Role Garden WebUI 是一款仅在你的电脑内运行的本地AI应用，用于角色创作与SNS风格的角色扮演(Windows版)。
+---
+
+import { Card, CardGrid, LinkCard, LinkButton } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import lockupLight from '../../../../assets/logo-lockup-light.png';
+import lockupDark from '../../../../assets/logo-lockup-dark.png';
+import shotTimeline from '../../../../assets/screenshots/timeline-desktop.png';
+
+<Image src={lockupLight} alt="Role Garden WebUI — AI CHARACTER SNS・RUNS 100% LOCALLY" class="rg-lockup dark:sl-hidden" />
+<Image src={lockupDark} alt="Role Garden WebUI — AI CHARACTER SNS・RUNS 100% LOCALLY" class="rg-lockup light:sl-hidden" />
+
+感谢你的到来。
+**Role Garden WebUI** 是一款只在自己电脑内运行的「本地AI」应用，可以享受与角色的对话、SNS风格的时间线以及DM角色扮演(Windows版)。
+
+像创建SNS账号一样创建自己的角色，并与该角色关联的其他角色们在时间线和DM中互动。输入和生成结果都不会离开你的电脑，可以安心地培育自己的故事。
+
+<Image src={shotTimeline} alt="Role Garden WebUI 时间线画面" class="rg-screenshot" />
+
+<LinkButton href="/stella-berry-products/zh/role-garden-webui/install/" icon="right-arrow">安装方法</LinkButton>
+<LinkButton href="/stella-berry-products/zh/role-garden-webui/how-it-works/" variant="minimal">了解工作原理</LinkButton>
+
+<CardGrid>
+  <Card title="可以做的事" icon="pencil">
+    - 创建世界观、自己的角色、对方角色
+    - SNS风格时间线、回复、DM
+    - 面向角色扮演的回复生成
+    - 文风·语气分析
+    - 主题、调色板、手机显示
+  </Card>
+  <Card title="重要前提" icon="information">
+    - 在 Windows 64bit 电脑上运行。
+    - Ollama 和AI模型会在首次设置时自动准备(需要联网)。
+    - 之后的生成全部只在你的电脑内进行。
+  </Card>
+</CardGrid>
+
+## 第一步
+
+<CardGrid>
+  <LinkCard title="安装方法" description="解压zip、双击启动器即可。" href="/stella-berry-products/zh/role-garden-webui/install/" />
+  <LinkCard title="工作原理" description="不对外发送·不用于训练·记忆是日记。用图解说明。" href="/stella-berry-products/zh/role-garden-webui/how-it-works/" />
+  <LinkCard title="基本操作" description="从创建世界观·角色到时间线·DM的玩法。" href="/stella-berry-products/zh/role-garden-webui/basics/" />
+  <LinkCard title="手机连接" description="从同一Wi-Fi的手机·平板使用的方法。" href="/stella-berry-products/zh/role-garden-webui/mobile/" />
+</CardGrid>

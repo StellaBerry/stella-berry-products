@@ -1,0 +1,47 @@
+---
+title: 開始使用
+description: Role Garden WebUI 是一款僅在你的電腦內運行的本機AI應用，用於角色創作與SNS風格的角色扮演(Windows版)。
+---
+
+import { Card, CardGrid, LinkCard, LinkButton } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import lockupLight from '../../../../assets/logo-lockup-light.png';
+import lockupDark from '../../../../assets/logo-lockup-dark.png';
+import shotTimeline from '../../../../assets/screenshots/timeline-desktop.png';
+
+<Image src={lockupLight} alt="Role Garden WebUI — AI CHARACTER SNS・RUNS 100% LOCALLY" class="rg-lockup dark:sl-hidden" />
+<Image src={lockupDark} alt="Role Garden WebUI — AI CHARACTER SNS・RUNS 100% LOCALLY" class="rg-lockup light:sl-hidden" />
+
+感謝你的到來。
+**Role Garden WebUI** 是一款只在自己電腦內運行的「本機AI」應用，可以享受與角色的對話、SNS風格的時間軸以及DM角色扮演(Windows版)。
+
+像建立SNS帳號一樣建立自己的角色，並與該角色關聯的其他角色們在時間軸和DM中互動。輸入和生成結果都不會離開你的電腦，可以安心地培育自己的故事。
+
+<Image src={shotTimeline} alt="Role Garden WebUI 時間軸畫面" class="rg-screenshot" />
+
+<LinkButton href="/stella-berry-products/zh-tw/role-garden-webui/install/" icon="right-arrow">安裝方法</LinkButton>
+<LinkButton href="/stella-berry-products/zh-tw/role-garden-webui/how-it-works/" variant="minimal">了解運作原理</LinkButton>
+
+<CardGrid>
+  <Card title="可以做的事" icon="pencil">
+    - 建立世界觀、自己的角色、對方角色
+    - SNS風格時間軸、回覆、DM
+    - 面向角色扮演的回覆生成
+    - 文風·語氣分析
+    - 主題、調色盤、手機顯示
+  </Card>
+  <Card title="重要前提" icon="information">
+    - 在 Windows 64bit 電腦上運行。
+    - Ollama 和AI模型會在首次設定時自動準備(需要連網)。
+    - 之後的生成全部只在你的電腦內進行。
+  </Card>
+</CardGrid>
+
+## 第一步
+
+<CardGrid>
+  <LinkCard title="安裝方法" description="解壓縮zip、雙擊啟動器即可。" href="/stella-berry-products/zh-tw/role-garden-webui/install/" />
+  <LinkCard title="運作原理" description="不對外傳送·不用於訓練·記憶是日記。用圖解說明。" href="/stella-berry-products/zh-tw/role-garden-webui/how-it-works/" />
+  <LinkCard title="基本操作" description="從建立世界觀·角色到時間軸·DM的玩法。" href="/stella-berry-products/zh-tw/role-garden-webui/basics/" />
+  <LinkCard title="手機連線" description="從同一Wi-Fi的手機·平板使用的方法。" href="/stella-berry-products/zh-tw/role-garden-webui/mobile/" />
+</CardGrid>
