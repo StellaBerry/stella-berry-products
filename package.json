@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node -e \"require('node:fs').rmSync('dist/admin',{recursive:true,force:true})\"",
     "preview": "astro preview",
     "astro": "astro"
   },
