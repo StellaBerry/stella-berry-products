@@ -34,6 +34,17 @@ export default defineConfig({
           content:
             "try{if(!localStorage.getItem('starlight-theme')){localStorage.setItem('starlight-theme','light');document.documentElement.dataset.theme='light';}}catch(e){}",
         },
+        // 韓国語/繁体中文のシステムフォールバック(明朝系等)を避けるため、Noto Sans KR/TC を読み込む。
+        // フォント本体(woff2)は unicode-range 分割されており、該当言語のページでのみダウンロードされる。
+        { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
+        { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap',
+          },
+        },
       ],
       sidebar: [
         {
