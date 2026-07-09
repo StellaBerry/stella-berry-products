@@ -29,6 +29,17 @@ export default defineConfig({
       // 既定テーマを「ライト（陽だまりの庭）」に固定（ダークは右上トグルで選択可）。
       // 保存済みの選択が無い初回だけ light を種まきする。
       head: [
+        // Google アナリティクス 4（測定 ID: G-38GDBW5CYK / ストリーム "Product Docs"）。
+        // 全ページ・全言語の <head> に読み込まれる。BOOTH / Gumroad とは別ストリームで数値を分離。
+        {
+          tag: 'script',
+          attrs: { async: true, src: 'https://www.googletagmanager.com/gtag/js?id=G-38GDBW5CYK' },
+        },
+        {
+          tag: 'script',
+          content:
+            "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-38GDBW5CYK');",
+        },
         {
           tag: 'script',
           content:
