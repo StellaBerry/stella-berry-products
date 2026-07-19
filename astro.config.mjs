@@ -63,6 +63,7 @@ export default defineConfig({
           items: [
             { label: 'はじめに', translations: { en: 'Getting Started', ko: '시작하기', 'zh-CN': '开始使用', 'zh-TW': '開始使用' }, slug: 'role-garden-webui' },
             { label: 'インストール方法', translations: { en: 'Installation', ko: '설치 방법', 'zh-CN': '安装方法', 'zh-TW': '安裝方法' }, slug: 'role-garden-webui/install' },
+            { label: 'アップデート方法', translations: { en: 'How to Update', ko: '업데이트 방법', 'zh-CN': '更新方法', 'zh-TW': '更新方法' }, slug: 'role-garden-webui/update' },
             { label: 'しくみ', translations: { en: 'How It Works', ko: '작동 원리', 'zh-CN': '工作原理', 'zh-TW': '運作原理' }, slug: 'role-garden-webui/how-it-works' },
             {
               label: '基本操作',

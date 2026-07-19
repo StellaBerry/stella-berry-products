@@ -1,0 +1,30 @@
+---
+title: How to Update
+description: Just extract the new zip and launch it. Your data carries over automatically.
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Each new version extracts into its own folder, so nothing is overwritten. Your characters, posts, and settings are stored outside the app folder, so **simply launching the new version carries everything over automatically**.
+
+## Update steps
+
+<Steps>
+
+1. Quit Role Garden WebUI (use the launcher's stop button, or `stop_role_garden_webui.bat`).
+
+2. Download the new zip from the store where you purchased (BOOTH / Gumroad) and extract it anywhere you like (extraction creates a folder such as `RoleGardenWebUI_v1_1`).
+
+3. Open the `RoleGardenWebUI` folder inside it and start "Role Garden WebUI Launcher.exe". Confirm everything works as usual — no reconfiguration is needed.
+
+4. If you have a desktop shortcut, recreate it (the old shortcut still points to the previous version's folder). Delete the old shortcut, then right-click the new "Role Garden WebUI Launcher.exe" → "Send to" → "Desktop (create shortcut)".
+
+5. Once the new version is confirmed working, you can delete the previous version's folder entirely.
+
+</Steps>
+
+## Notes
+
+- Downloaded AI models and Ollama are reused as they are. No re-download is needed.
+- If you use the app from your phone (LAN access), the Windows Firewall permission dialog may appear again on the first launch after updating. Choose "Allow access".
+- (Advanced) Only if you created a `models_custom.txt` yourself, copy it into the new folder.
