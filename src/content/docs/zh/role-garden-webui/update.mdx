@@ -1,0 +1,30 @@
+---
+title: 更新方法
+description: 解压新的zip并启动即可。创建的数据会自动继承。
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+新版本会解压到独立的文件夹中,因此不存在覆盖操作。创建的角色、帖子和设置保存在应用之外的位置,**只需启动新版本即可自动继承**。
+
+## 更新步骤
+
+<Steps>
+
+1. 退出 Role Garden WebUI(使用启动器的停止按钮,或 `stop_role_garden_webui.bat`)。
+
+2. 从购买的商店(BOOTH / Gumroad)下载新的zip,解压到任意位置(解压后会生成类似 `RoleGardenWebUI_v1_1` 的文件夹)。
+
+3. 打开其中的 `RoleGardenWebUI` 文件夹,运行 "Role Garden WebUI Launcher.exe"。确认可以正常使用,无需重新设置。
+
+4. 如果桌面上有快捷方式,请重新创建(旧的快捷方式仍指向旧版本的文件夹)。删除旧的快捷方式,然后右键点击新的 "Role Garden WebUI Launcher.exe" → "发送到" → "桌面快捷方式"。
+
+5. 确认新版本正常运行后,旧版本的文件夹可以整个删除。
+
+</Steps>
+
+## 补充说明
+
+- 已下载的AI模型和Ollama会继续使用,无需重新下载。
+- 如果通过手机使用(局域网访问),更新后首次启动时可能会再次弹出Windows防火墙的允许对话框,请选择"允许访问"。
+- (高级)仅当你自己创建过 `models_custom.txt` 时,才需要将其复制到新文件夹。
